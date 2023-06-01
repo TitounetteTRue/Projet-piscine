@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ajouter un évènement</title>
-  <script src="event.js" defer></script>
+  <title>Ajouter des événements</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script src="ajout.js" defer></script>
 </head>
 <body>
-  <h1>Ajouter un évènement</h1>
-  
-  <form>
-    <label for="image">Sélectionner une image :</label>
-    <input type="file" id="image" accept="image/*"><br><br>
-    
-    <label for="titre">Titre de l'article :</label>
-    <input type="text" id="titre"><br><br>
-    
-    <label for="lien">Lien de l'article :</label>
-    <input type="text" id="lien"><br><br>
-    
-    <input type="button" value="Envoyer" id="envoyerBtn">
-  </form>
+  <div class="container">
+    <h1>Ajouter des événements</h1>
+
+    <form id="eventForm">
+      <div class="form-group">
+        <label for="titre">Titre :</label>
+        <input type="text" class="form-control" id="titre">
+      </div>
+
+      <div class="form-group">
+        <label for="image">Sélectionner une image :</label>
+        <input type="file" class="form-control-file" id="image" accept="image/*">
+      </div>
+
+      <div class="form-group">
+        <label for="lien">Lien :</label>
+        <input type="text" class="form-control" id="lien">
+      </div>
+
+      <button type="button" class="btn btn-primary" id="ajouterBtn">Ajouter l'événement</button>
+    </form>
+
+    <button type="button" class="btn btn-secondary" id="afficherBtn">Afficher les événements</button>
+  </div>
 </body>
 </html>
