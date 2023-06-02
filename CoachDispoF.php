@@ -33,7 +33,7 @@
             session_start();//pour maintenir la session active
             //connexion à la base de données:
             $database = "sportify";
-            $db_handle = mysqli_connect('localhost','root','Mezarnou');
+            $db_handle = mysqli_connect('localhost','root','aaaa');
             $db_found = mysqli_select_db($db_handle, $database);
 
             /*
@@ -101,7 +101,7 @@
               <br>
             </div>
             <div class="text-center">
-              <a href="#"><button class="btn btn-success">Contacter</button></a>
+              <a href="login.html"><button class="btn btn-success">Contacter</button></a>
               <br>
             </div>
             <div class="text-center">
