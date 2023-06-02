@@ -15,7 +15,7 @@
     <nav>
       <a href="Accueil.html">Accueil</a>
       <a href="Tout parcourir.html">Tout parcourir</a>
-      <a href="#">Recherche</a>
+      <a href="recherche.html">Recherche</a>
       <a href="#" id="pageencours">Rendez-vous</a>
       <a href="#">Votre compte</a>
     </nav>
@@ -38,7 +38,7 @@
     session_start();//pour maintenir la session active
     //connexion à la base de données:
     $database = "sportify";
-    $db_handle = mysqli_connect('localhost','root','Mezarnou');
+    $db_handle = mysqli_connect('localhost','root','');
     $db_found = mysqli_select_db($db_handle, $database);
     
     /*
@@ -114,7 +114,7 @@
             <h5 class="headin5_amrc col_white_amrc pt2">Où nous trouver</h5>
             <p><i class="fa fa-location-arrow"></i> 3 rue Jean Massiet</p>
             <p><i class="fa fa-phone"></i>  +33 16 27 38 49 50  </p>
-            <p><i class="fa fa fa-envelope"></i> info@omnessports.com  </p>
+            <p><a HREF="mailto:info@omnessports.com"><i class="fa fa fa-envelope"></i> info@omnessports.com </a> </p>
           </div>
         </div>
       </div>

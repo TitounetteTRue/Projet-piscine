@@ -76,8 +76,8 @@
             
         </div>
         <div id="footer">
-        Copyright &copy; 2023, EuxCEux<br />
-                     <a href="mailto:EuxCEux@gmail.com">EuxCEux@gmail.com </a>
+        Copyright &copy; 2023, Sportify<br />
+        <p><a HREF="mailto:info@omnessports.com"><i class="fa fa fa-envelope"></i> info@omnessports.com </a> </p>
                 </div>
         </div> 
     </div>

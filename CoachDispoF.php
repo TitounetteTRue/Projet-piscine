@@ -26,14 +26,15 @@
           </nav>
           
           <section>
-            <h2 class="h2">Coach</h2>
+            <br>
+            <h2 class="text-center">Coach</h2>
             <?php
             /// inspirer par ce calendrier https://www.c2script.com/scripts/calendrier-de-reservation-simple-en-php-s24.html
             //page: calendrier.php
             session_start();//pour maintenir la session active
             //connexion à la base de données:
             $database = "sportify";
-            $db_handle = mysqli_connect('localhost','root','aaaa');
+            $db_handle = mysqli_connect('localhost','root','');
             $db_found = mysqli_select_db($db_handle, $database);
 
             /*
@@ -68,25 +69,17 @@
                     //on trouve les coach
                     //afficher le resultat
                     while ($data = mysqli_fetch_assoc($result)) {
-                        
+                      
                         $image = $data['Photo_Coach'];
-                        echo "<table >";
-                        echo "<tr>";
-                        echo "<img src='$image' height='120' width='100'>";
-                        echo "</tr>";
-                        echo "<tr>";
-                        echo "<td>" . "Nom : " . $data['Nom_Coach'] ."</td>";
-                        echo "</tr>";
-                        echo "<tr>";
-                        echo "<td>" . "Prenom : " . $data['Prenom_Coach'] ."</td>";
-                        echo "</tr>";
-                        echo "<tr>";
-                        echo "<td>" . "E-mail : " . $data['Email_Coach'] ."</td>";
-                        echo "</tr>";
-                        echo "<tr>";
-                        echo "<td>" . "Spécialité : " .$data['Specialite_Coach']. "</td>";
-                        echo "</tr>";
-                        
+                        echo" <div class='media'>";
+                        echo "<br><img src='$image' class='float-start' height='120' width='100'>";
+                        echo "<div class='media-body text-center'>";
+                        echo "<p>" . "Nom : " . $data['Nom_Coach'] ."<br>";
+                        echo  "Prenom : " . $data['Prenom_Coach'] ."<br>";
+                        echo "<a HREF='mailto:".$data['Email_Coach']."'>"."E-mail : " . $data['Email_Coach'] ."</a>"."<br>";
+                        echo "Spécialité : " .$data['Specialite_Coach']. "<br>"."</p>"; 
+                        echo "</div>";
+                        echo "</div>";
                         
                     }
                     echo "</table>";
@@ -95,21 +88,24 @@
                 
               </a>
             </p>
-
+                <br>
             <div class="text-center">
+              <p>
               <a href="#"><button class="btn btn-success">Disponible</button></a>
-              <br>
+              </p>
             </div>
             <div class="text-center">
-              <a href="login.html"><button class="btn btn-success">Contacter</button></a>
-              <br>
+              <p>
+              <a href="#"><button class="btn btn-success">Contacter</button></a>
+              </p>
             </div>
             <div class="text-center">
+              <p>
               <a href="PrendreRDV.php"><button class="btn btn-success">Prendre RDV</button></a>
-              <br>
+              </p>
             </div>
-            
-            <table style="border:1px solid black;border-collapse:collapse;box-shadow: 10px 10px 5px #888888;">
+            <br>
+            <table style="border:1px solid black;border-collapse:collapse;box-shadow: 10px 10px 5px #888888;" class="text-center">
 
                 <tr style="border-right:1px solid black;">
                                 <th style="<?php echo $StyleTh; ?>">Lundi</th>
@@ -153,7 +149,7 @@
             </table>
              <br>
             
-            <a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-50-hover" href="activite_sportives.html"> RETOUR A LA PAGE D'AVANT</a>
+            <a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-50-hover" href="Tout parcourir.html"> RETOUR A LA PAGE PRECEDENTE</a>
 
           </section>
           <footer class="footer">
@@ -163,7 +159,7 @@
             <h5 class="headin5_amrc col_white_amrc pt2">Où nous trouver</h5>
             <p><i class="fa fa-location-arrow"></i> 3 rue Jean Massiet</p>
             <p><i class="fa fa-phone"></i>  +33 16 27 38 49 50  </p>
-            <p><i class="fa fa fa-envelope"></i> info@omnessports.com  </p>
+            <p><a HREF="mailto:info@omnessports.com"><i class="fa fa fa-envelope"></i> info@omnessports.com </a> </p>
           </div>
         </div>
       </div>
