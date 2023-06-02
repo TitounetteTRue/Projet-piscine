@@ -57,6 +57,30 @@
             $sql .= " WHERE Specialite_Coach LIKE '%cours%'";
             
           }
+          if(preg_match("/Basketball/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%basketball%'";
+            
+          }
+          if(preg_match("/Football/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%football%'";
+            
+          }
+          if(preg_match("/Rugby/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%rugby%'";
+            
+          }
+          if(preg_match("/Tennis/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%tennis%'";
+            
+          }
+          if(preg_match("/Natation/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%cNatation%'";
+            
+          }
+          if(preg_match("/Plongeon/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%cPlongeon%'";
+            
+          }
           $result = mysqli_query($db_handle, $sql);
           //regarder s'il y a des resultats
           if (mysqli_num_rows($result) == 0) {
