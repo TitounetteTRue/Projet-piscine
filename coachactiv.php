@@ -63,7 +63,7 @@
                 $image = $data['Photo_Coach'];
                   echo "<table >";
                   echo "<tr>";
-                  echo  "<img src='$image' height='120' width='100'>"  ;
+                  echo "<img src='$image' height='120' width='100'>";
                   echo "</tr>";
                   echo "<tr>";
                   echo "<td>" . "Nom : " . $data['Nom_Coach'] ."</td>";
@@ -72,7 +72,7 @@
                   echo "<td>" . "Prenom : " . $data['Prenom_Coach'] ."</td>";
                   echo "</tr>";
                   echo "<tr>";
-                  echo "<td>" . "E_mail : " . $data['Email_Coach'] ."</td>";
+                  echo "<td>" . "E-mail : " . $data['Email_Coach'] ."</td>";
                   echo "</tr>";
                   echo "<tr>";
                   echo "<td>" . "Spécialité : " .$data['Specialite_Coach']. "</td>";
