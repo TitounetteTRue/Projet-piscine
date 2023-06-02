@@ -35,21 +35,27 @@
 
         if ($db_found) {
           //commencer le query
+          $lien='CoachDispoF.php';
           $sql = "SELECT * FROM coach ";
           if(preg_match("/Musculation/",$_SERVER['HTTP_REFERER'])){
             $sql .= " WHERE Specialite_Coach LIKE '%musculation%'";
+            
           }
           if(preg_match("/Fitness/",$_SERVER['HTTP_REFERER'])){
             $sql .= " WHERE Specialite_Coach LIKE '%fitness%'";
+            
           }
           if(preg_match("/Biking/",$_SERVER['HTTP_REFERER'])){
             $sql .= " WHERE Specialite_Coach LIKE '%biking%'";
+            
           }
           if(preg_match("/Cardio/",$_SERVER['HTTP_REFERER'])){
             $sql .= " WHERE Specialite_Coach LIKE '%cardio%'";
+            
           }
           if(preg_match("/Cours/",$_SERVER['HTTP_REFERER'])){
             $sql .= " WHERE Specialite_Coach LIKE '%cours%'";
+            
           }
           $result = mysqli_query($db_handle, $sql);
           //regarder s'il y a des resultats
@@ -58,12 +64,14 @@
           } else {
               //on trouve les coach
               //afficher le resultat
+              session_start();
               while ($data = mysqli_fetch_assoc($result)) {
                   
                 $image = $data['Photo_Coach'];
                   echo "<table >";
                   echo "<tr>";
-                  echo "<img src='$image' height='120' width='100'>";
+                  echo "<a href=".$lien."><img src='$image' height='120' width='100'></a>";
+                  $_SESSION['coach']=$data['Id_Coach'];
                   echo "</tr>";
                   echo "<tr>";
                   echo "<td>" . "Nom : " . $data['Nom_Coach'] ."</td>";
