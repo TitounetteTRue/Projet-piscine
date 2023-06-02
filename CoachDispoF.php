@@ -20,8 +20,8 @@
         <nav>
             <a href="Accueil.html">Accueil</a>
             <a href="Tout parcourir.html">Tout parcourir</a>
-            <a href="#">Recherche</a>
-            <a href="#">Rendez-vous</a>
+            <a href="rercherche.html">Recherche</a>
+            <a href="rendezvous.html">Rendez-vous</a>
             <a href="#">Votre compte</a>
           </nav>
           
@@ -89,7 +89,7 @@
                         
                     }
                     echo "</table>";
-                    unset($_SESSION['Id_Coach']);
+                    
                 }?>
                 
               </a>
@@ -104,7 +104,7 @@
               <br>
             </div>
             <div class="text-center">
-              <a href="#"><button class="btn btn-success">Prendre RDV</button></a>
+              <a href="PrendreRDV.php"><button class="btn btn-success">Prendre RDV</button></a>
               <br>
             </div>
             
