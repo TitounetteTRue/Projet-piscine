@@ -14,7 +14,7 @@
                 <a href="Accueil.html">Accueil</a>
                 <a href="Tout Parcourir.html">Tout Parcourir</a>
                 <a href="Recherche.html">Recherche</a>
-                <a href="Rendez-vous.html">Rendez-vous</a>
+                <a href="Rendez-vous.php">Rendez-vous</a>
                 <a href="VotreCompte.html">Votre Compte</a>
         </div>
         <div id="container">

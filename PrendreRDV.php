@@ -21,7 +21,7 @@
             <a href="Accueil.html">Accueil</a>
             <a href="Tout parcourir.html">Tout parcourir</a>
             <a href="rercherche.html">Recherche</a>
-            <a href="rendezvous.html">Rendez-vous</a>
+            <a href="rendezvous.php">Rendez-vous</a>
             <a href="#">Votre compte</a>
           </nav>
           
@@ -64,6 +64,8 @@ $db_found = mysqli_select_db($db_handle, $database);
 $heures= array(1=>"9:00",2=>"9:20",3=>"9:40",4=>"10:00",5=>"10:20",6=>"10:40",7=>"11:00",8=>"11:20",9=>"11:40",10=>"12:00",11=>"14:00",12=>"14:20",13=>"14:40",14=>"15:00",15=>"15:20",16=>"15:40",17=>"16:00",18=>"16:20",19=>"16:40",20=>"17:00",21=>"17:20",22=>"17:40",23=>"18:00");
 //$jours = array(1=>"Lu",2=>"Ma",3=>"Me",4=>"Je",5=>"Ve",6=>"Sa",0=>"Di");
 $periodes = array(1=>"AM",2=>"PM");
+$AM= array(1=>"9:00",2=>"9:20",3=>"9:40",4=>"10:00",5=>"10:20",6=>"10:40",7=>"11:00",8=>"11:20",10=>"12:00");
+$PM=array(11=>"14:00",12=>"14:20",13=>"14:40",14=>"15:00",15=>"15:20",16=>"15:40",17=>"16:00",18=>"16:20",19=>"16:40",20=>"17:00",21=>"17:20",22=>"17:40",23=>"18:00");
 
 
 //initialisation du mois
@@ -97,7 +99,7 @@ if(isset($_SESSION['Login'])){
 				
 				echo "Une erreur s'est produite1:<br />".mysqli_error($db_handle);
 			}
-		} else {
+		} if($_GET['choix']==0) {
 			if(mysqli_query($db_handle,"DELETE FROM calendrier_client WHERE Id_Coach='$id_coach' AND Id_Client='$id' AND heur='$heur' AND Jour='$jour'")) {
 				echo "Journée mise en \"disponible\" avec succès !";
 			} else {
@@ -132,6 +134,11 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:black;width:75px;border-right:1px 
 			$JourReserve=0;
 			$req = mysqli_query($db_handle,"SELECT * FROM calendrier_client WHERE heur ='$heur' AND Jour='$jour' AND Id_Coach='$id_coach'");
 			if(mysqli_num_rows($req)>0)$JourReserve=1;
+			
+			
+			$result = mysqli_query($db_handle,"SELECT periode FROM calendrier WHERE Jour='$jour' AND Id_Coach='$id_coach'");
+			echo $result->num_rows;
+			//if(mysqli_num_rows($result)>0)$JourReserve=2;
 			?>
 			<tr>
 				<td style="<?php echo $JourReserve==1?"background:#FF8888;":"background:#88FF88;"; ?>border-bottom:1px solid #eee;"><?php echo $heures[$heur]; ?></td>
