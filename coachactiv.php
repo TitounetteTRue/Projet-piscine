@@ -35,7 +35,7 @@
 
         if ($db_found) {
           //commencer le query
-          $lien='CoachDispoF.php';
+          
           $sql = "SELECT * FROM coach ";
           if(preg_match("/Musculation/",$_SERVER['HTTP_REFERER'])){
             $sql .= " WHERE Specialite_Coach LIKE '%musculation%'";
@@ -92,10 +92,10 @@
               while ($data = mysqli_fetch_assoc($result)) {
                   
                 $image = $data['Photo_Coach'];
+                echo"<form action='coachactivB.php' method='post'>";
                   echo "<table >";
                   echo "<tr>";
-                  echo "<a href=".$lien."><img src='$image' height='120' width='100'></a>";
-                  $_SESSION['coach']=$data['Id_Coach'];
+                  echo "<img src='$image' height='120' width='100'>";
                   echo "</tr>";
                   echo "<tr>";
                   echo "<td>" . "Nom : " . $data['Nom_Coach'] ."</td>";
@@ -109,9 +109,13 @@
                   echo "<tr>";
                   echo "<td>" . "Spécialité : " .$data['Specialite_Coach']. "</td>";
                   echo "</tr>";
-                 
+                  echo "</table>";
+                   echo"<form>";
+                  echo "<input type='submit'name=" . $data['Id_Coach'] ." value='Voir'/>";
+                  echo"</br>";
               }
-              echo "</table>";
+              
+              
           }
       } else {
           echo "<p>Database not found.</p>";

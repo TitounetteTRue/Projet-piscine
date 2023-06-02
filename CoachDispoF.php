@@ -87,6 +87,7 @@
                         echo "<td>" . "Spécialité : " .$data['Specialite_Coach']. "</td>";
                         echo "</tr>";
                         
+                        
                     }
                     echo "</table>";
                     
