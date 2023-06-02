@@ -27,7 +27,7 @@
       
       <section>
       <?php 
-        echo $_SERVER['HTTP_REFERER'];
+        
         $database = "sportify";
         //connectez-vous dans BDD
         $db_handle =mysqli_connect("localhost", "root","Mezarnou");
@@ -36,32 +36,48 @@
         if ($db_found) {
           //commencer le query
           $sql = "SELECT * FROM coach ";
-          
+          if(preg_match("/Musculation/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%musculation%'";
+          }
+          if(preg_match("/Fitness/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%fitness%'";
+          }
+          if(preg_match("/Biking/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%biking%'";
+          }
+          if(preg_match("/Cardio/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%cardio%'";
+          }
+          if(preg_match("/Cours/",$_SERVER['HTTP_REFERER'])){
+            $sql .= " WHERE Specialite_Coach LIKE '%cours%'";
+          }
           $result = mysqli_query($db_handle, $sql);
           //regarder s'il y a des resultats
           if (mysqli_num_rows($result) == 0) {
               echo "<p>Coach not found.</p>";
           } else {
               //on trouve les coach
-              echo "<table >";
-              echo "<tr>";
-              
-              echo "<th>" . "Nom" . "</th>";
-              echo "<th>" . "Prenom" . "</th>";
-              echo "<th>" . "E_mail" . "</th>";
-              echo "<th>" . "Spécialité" . "</th>";
-              echo "<th>" . "Photo" . "</th>";
               //afficher le resultat
               while ($data = mysqli_fetch_assoc($result)) {
-                  echo "<tr>";
                   
-                  echo "<td>" . $data['Nom_Coach'] . "</td>";
-                  echo "<td>" . $data['Prenom_Coach'] . "</td>";
-                  echo "<td>" . $data['Email_Coach'] . "</td>";
-                  echo "<td>" . $data['Specialite_Coach'] . "</td>";
-                  $image = $data['Photo_Coach'];
-                  echo "<td>" . "<img src='$image' height='120' width='100'>" . "</td>";
+                $image = $data['Photo_Coach'];
+                  echo "<table >";
+                  echo "<tr>";
+                  echo  "<img src='$image' height='120' width='100'>"  ;
                   echo "</tr>";
+                  echo "<tr>";
+                  echo "<td>" . "Nom : " . $data['Nom_Coach'] ."</td>";
+                  echo "</tr>";
+                  echo "<tr>";
+                  echo "<td>" . "Prenom : " . $data['Prenom_Coach'] ."</td>";
+                  echo "</tr>";
+                  echo "<tr>";
+                  echo "<td>" . "E_mail : " . $data['Email_Coach'] ."</td>";
+                  echo "</tr>";
+                  echo "<tr>";
+                  echo "<td>" . "Spécialité : " .$data['Specialite_Coach']. "</td>";
+                  echo "</tr>";
+                 
               }
               echo "</table>";
           }
