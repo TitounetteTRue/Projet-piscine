@@ -137,7 +137,7 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:black;width:75px;border-right:1px 
 			
 			
 			$result = mysqli_query($db_handle,"SELECT periode FROM calendrier WHERE Jour='$jour' AND Id_Coach='$id_coach'");
-			echo $result->num_rows;
+			//echo $result->num_rows;
 			//if(mysqli_num_rows($result)>0)$JourReserve=2;
 			?>
 			<tr>

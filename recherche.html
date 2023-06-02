@@ -20,8 +20,11 @@
       <a href="#">Votre compte</a>
     </nav>
     <div class="rechercher">
-        <form action="recherche.php" method="GET">
-            <input type="search" class ="barre"name="q" placeholder="Nom, spécialité, établissement, service ...">
+        <form action="recherche.php" method="post">
+            <input type="search" class ="barre"name="nom" placeholder="Nom...">
+            <input type="search" class ="barre"name="prenom" placeholder="Prenom...">
+            <input type="search" class ="barre"name="specialite" placeholder="Spécialité">
+            <input type="search" class ="barre"name="email" placeholder="E-mail...">
             <input type="submit" class ="barre" value="Recherche">
         </form>
     </div>
