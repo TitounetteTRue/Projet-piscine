@@ -18,6 +18,8 @@ function ajouterEvent() {
       document.getElementById("titre").value = "";
       document.getElementById("lien").value = "";
       document.getElementById("image").value = "";
+
+      afficherEvents();
     };
     reader.readAsDataURL(image);
   } else {
@@ -26,27 +28,24 @@ function ajouterEvent() {
 }
 
 function afficherEvents() {
-  var resultatHTML = "<html><head><title>Événements</title>" +
-                     "<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>" +
-                     "</head><body>" +
-                     "<div class='container'>";
+  var eventsContainer = document.getElementById("eventsContainer");
+  eventsContainer.innerHTML = "";
 
   for (var i = 0; i < events.length; i++) {
     var event = events[i];
-    resultatHTML += "<div class='row'>" +
-                    "<div class='col-md-4'>" +
-                    "<h2>" + event.titre + "</h2>" +
-                    "<img src='" + event.image + "' alt='Image uploadée' class='img-fluid'>" +
-                    "<p><a href='" + event.lien + "' class='btn btn-primary'>Lien</a></p>" +
-                    "</div>" +
-                    "</div>";
+
+    var eventElement = document.createElement("div");
+    eventElement.className = "row";
+    eventElement.innerHTML = `
+      <div class="col-md-4">
+        <h2 style='font-size: 12px;'>${event.titre}</h2>
+        <img src="${event.image}" alt="Image uploadée" style='width: 160px; height: 90px;' class="img-fluid">
+        <p><a href="${event.lien}" class="btn btn-primary">Lien</a></p>
+      </div>
+    `;
+
+    eventsContainer.appendChild(eventElement);
   }
-
-  resultatHTML += "<button onclick='window.close()' class='btn btn-secondary'>Retour</button>" +
-                  "</div></body></html>";
-
-  var nouvelleFenetre = window.open("", "_blank");
-  nouvelleFenetre.document.write(resultatHTML);
 }
 
 document.getElementById("ajouterBtn").addEventListener("click", ajouterEvent);
