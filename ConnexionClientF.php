@@ -20,25 +20,18 @@
           <nav>
               <a href="Accueil.html">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
-              <a href="recherche.html">Recherche</a>
+              <a href="recherche.php">Recherche</a>
               <a href="rendezvous.php">Rendez-vous</a>
-              <a href="#">Votre compte</a>
+              <a href="Votrecompte.html">Votre compte</a>
             </nav>
             
             <section class="nav">
             <div id="rightcolumn">
 
-<<<<<<< HEAD
                 <h1>Se connecter </h1>
                 
-                <p>Vous n'avez pas de compte? <a href="CreationClientF.php">Créer un compte</a> <p> <!--Il faut créer un lien vers la création d'un autre compte -->
+                <p>Vous n'avez pas de compte? <a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-50-hover" href="CreationClientF.php">Créer un compte</a> <p> <!--Il faut créer un lien vers la création d'un autre compte -->
                 <form action="ConnexionClientB.php" method="post"> <!--Il faut écrire le traitementFormulaire.php-->
-=======
-<h1>Se connecter </h1>
->>>>>>> 6101a4a3bb6e635e22b27be4b726904ff338dba0
-
-<p>Vous n'avez pas de compte? Créer un compte <p> <!--Il faut créer un lien vers la création d'un autre compte -->
-<form action="ConnexionClientB.php" method="post"> <!--Il faut écrire le traitementFormulaire.php-->
 
     <table>
         <tr>

@@ -17,8 +17,18 @@
       <a href="Tout parcourir.html">Tout parcourir</a>
       <a href="#" id="pageencours">Recherche</a>
       <a href="rendezvous.php">Rendez-vous</a>
-      <a href="#">Votre compte</a>
+      <a href="Votrecompte.html">Votre compte</a>
     </nav>
+    <section>
+    <div class="rechercher">
+        <form action="recherche.php" method="post">
+            <input type="search" class ="barre"name="nom" placeholder="Nom...">
+            <input type="search" class ="barre"name="prenom" placeholder="Prenom...">
+            <input type="search" class ="barre"name="specialite" placeholder="Spécialité">
+            <input type="search" class ="barre"name="email" placeholder="E-mail...">
+            <input type="submit" class ="barre" value="Recherche">
+        </form>
+    </div>
 <?php 
 
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";
@@ -81,6 +91,7 @@ if (isset($_POST["barre"])){
     //fermer la connexion
     mysqli_close($db_handle);
     ?>
+    </section>
     <footer class="footer">
     <div class="container bottom_border">
       <div class="row">

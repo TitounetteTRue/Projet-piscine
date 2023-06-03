@@ -5,7 +5,7 @@ $errorMessage = '';
 //identifier BDD
 $database = "sportify";
 //connectez-vous dans BDD
-$db_handle =mysqli_connect("localhost", "root","aaaa");
+$db_handle =mysqli_connect("localhost", "root","");
 $db_found = mysqli_select_db($db_handle,$database);
 
 
@@ -149,5 +149,6 @@ $db_found = mysqli_select_db($db_handle,$database);
    if(isset($_POST["Deconnexion"]))
    {
     session_destroy();
+    header( 'Location: Tout parcourir.html');
    }
 ?>

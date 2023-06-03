@@ -13,8 +13,8 @@
         <br>
                 <a href="Accueil.php">Accueil</a>
                 <a href="ToutParcourir.html">Tout Parcourir</a>
-                <a href="Recherche.html">Recherche</a>
-                <a href="Rendez-vous.html">Rendez-vous</a>
+                <a href="">Recherche</a>
+                <a href="rendezvous.php">Rendez-vous</a>
                 <a href="VotreCompte.html">Votre Compte</a>
         </div>
         <div id="container">

@@ -22,6 +22,7 @@
                 
                 if (mysqli_num_rows($result) == 0) {
                     echo "<p>Compte non trouvé</p>";
+                    header( 'Location: ConnexionClientF.php');
                 }
                 else{
                     while ($data = mysqli_fetch_assoc($result)){

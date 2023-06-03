@@ -15,9 +15,9 @@
     <nav>
       <a href="Accueil.html">Accueil</a>
       <a href="Tout parcourir.html">Tout parcourir</a>
-      <a href="#" id="pageencours">Recherche</a>
+      <a href="recherche.php">Recherche</a>
       <a href="rendezvous.php">Rendez-vous</a>
-      <a href="#">Votre compte</a>
+      <a href="Votrecompte.html">Votre compte</a>
     </nav>
     
     <section>

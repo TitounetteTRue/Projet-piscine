@@ -20,9 +20,9 @@
         <nav>
             <a href="Accueil.html">Accueil</a>
             <a href="Tout parcourir.html">Tout parcourir</a>
-            <a href="rercherche.html">Recherche</a>
+            <a href="rercherche.php">Recherche</a>
             <a href="rendezvous.php">Rendez-vous</a>
-            <a href="#">Votre compte</a>
+            <a href="Votrecompte.html">Votre compte</a>
           </nav>
           
           <section>
@@ -96,7 +96,7 @@
             </div>
             <div class="text-center">
               <p>
-              <a href="#"><button class="btn btn-success">Contacter</button></a>
+              <a href="login.html"><button class="btn btn-success">Contacter</button></a>
               </p>
             </div>
             <div class="text-center">
