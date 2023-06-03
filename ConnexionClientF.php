@@ -22,7 +22,7 @@
 
                 <h1>Se connecter </h1>
                 
-                <p>Vous n'avez pas de compte? Créer un compte <p> <!--Il faut créer un lien vers la création d'un autre compte -->
+                <p>Vous n'avez pas de compte? <a href="CreationClientF.php">Créer un compte</a> <p> <!--Il faut créer un lien vers la création d'un autre compte -->
                 <form action="ConnexionClientB.php" method="post"> <!--Il faut écrire le traitementFormulaire.php-->
 
                     <table >

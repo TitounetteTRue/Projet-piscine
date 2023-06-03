@@ -40,14 +40,15 @@ if (isset($_POST["barre"])){
             if ($nom != "") {
                 //on recherche le livre par son titre
                 $sql .= " WHERE Nom_user LIKE '%$nom%'";
-                //on cherche ce livre par son auteur aussi
-                if ($prenom != "") {
-                    $sql .= " AND Prenom_user LIKE '%$prenom%'";
-                 }
-                 if ($email != "") {
-                    $sql .= " AND Email_user LIKE '%$email%'";
-                 }
+                
              }
+             //on cherche ce livre par son auteur aussi
+             if ($prenom != "") {
+              $sql .= " AND Prenom_user LIKE '%$prenom%'";
+           }
+           if ($email != "") {
+              $sql .= " AND Email_user LIKE '%$email%'";
+           }
             $result = mysqli_query($db_handle, $sql);
             //regarder s'il y a des resultats
             if (mysqli_num_rows($result) == 0) {
