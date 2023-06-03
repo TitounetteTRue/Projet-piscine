@@ -21,7 +21,7 @@
       <a href="Tout parcourir.html">Tout parcourir</a>
       <a href="recherche.php">Recherche</a>
       <a href="#" id="pageencours">Rendez-vous</a>
-      <a href="Votrecompt.html">Votre compte</a>
+      <a href="Votrecompte.html">Votre compte</a>
     </nav>
     
     <section>

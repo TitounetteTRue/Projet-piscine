@@ -28,7 +28,7 @@
         $result = mysqli_query($db_handle, $sql);
         //regarder s'il y a de resultat
         if (mysqli_num_rows($result) != 0) {
-            echo "<p>Ce coach exsiste déjà dans la base de donné</p>";
+            echo "<p>Ce coach exsiste déjà dans la base de données</p>";
             //header('Location: CommandeAdminF.php');
            // exit();
         } else {
