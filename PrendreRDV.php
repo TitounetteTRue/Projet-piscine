@@ -32,7 +32,7 @@
 session_start();//pour maintenir la session active
 //connexion à la base de données:
 $database = "sportify";
-$db_handle = mysqli_connect('localhost','root','Mezarnou');
+$db_handle = mysqli_connect('localhost','root','');
 $db_found = mysqli_select_db($db_handle, $database);
 
 /*
@@ -56,7 +56,7 @@ $db_found = mysqli_select_db($db_handle, $database);
 	}
 	$id=$_SESSION['Login'];
 	$id_coach=$_SESSION['coach'];
-	echo $id_coach;
+	echo "coach ".$id_coach;
 /*
 * Fin du module de connexion/déconnexion
 */
@@ -163,7 +163,7 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:black;width:75px;border-right:1px 
 </table>
 <br>
             
-            <a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-50-hover" href="activite_sportives.html"> RETOUR A LA PAGE D'AVANT</a>
+            <a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-50-hover" href="Tout parcourir.html"> RETOUR A LA PAGE PRECEDENTE</a>
 
           </section>
           <footer class="footer">

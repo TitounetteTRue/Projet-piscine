@@ -5,7 +5,7 @@ $errorMessage = '';
 //identifier BDD
 $database = "sportify";
 //connectez-vous dans BDD
-$db_handle =mysqli_connect("localhost", "root","");
+$db_handle =mysqli_connect("localhost", "root","aaaa");
 $db_found = mysqli_select_db($db_handle,$database);
 
 
@@ -25,7 +25,7 @@ $db_found = mysqli_select_db($db_handle,$database);
   $message = isset($_POST["Chat"])? $_POST["Chat"] : "";
   $destinataire = isset($_POST["Destinataire"])? $_POST["Destinataire"] : "";
 
-  $sql = "SELECT * FROM client WHERE Nom_Client LIKE '$destinataire'";//on cherche si le destinataire existe dans la base de donnée des clients
+  $sql = "SELECT * FROM user WHERE Nom_user LIKE '$destinataire'";//on cherche si le destinataire existe dans la base de donnée des clients
   $result = mysqli_query($db_handle, $sql);
                 
   $flag=0;
@@ -48,7 +48,7 @@ $db_found = mysqli_select_db($db_handle,$database);
           <div class='chat'>
           <!-- Ici on peut mettre des faux messages-->
          </div>
-          <form action='chat.php' method='post' >
+          <form action='chatsession.php' method='post' >
               <input type='text' name='Chat' placeholder='Ecrivez un message'>
               <input type='text' name='Destinataire' placeholder='Choisissez le destinataire'>
               <input type='submit' name='envoyer' value='Envoyer'>
@@ -104,8 +104,8 @@ $db_found = mysqli_select_db($db_handle,$database);
             //commencer le query
 
 
-            $sql = "SELECT * from client WHERE Email_Client LIKE '$email'
-                AND Mdp_Client LIKE '$mdp'";
+            $sql = "SELECT * from user WHERE Email_user LIKE '$email'
+                AND Mdp_user LIKE '$mdp'";
                 $result = mysqli_query($db_handle, $sql);
                 
                 if (mysqli_num_rows($result) == 0) {
@@ -115,8 +115,8 @@ $db_found = mysqli_select_db($db_handle,$database);
                     while ($data = mysqli_fetch_assoc($result)){
                     
                     // On enregistre le login en session
-                    $_SESSION['ID_client'] = $data['Id_Client'];
-                    $_SESSION['Nom_client'] = $data['Nom_Client'];
+                    $_SESSION['ID_client'] = $data['ID_user'];
+                    $_SESSION['Nom_client'] = $data['Nom_user'];//on recupere le nom de l'utilisateur dans la session PHP
                     //$sql = "SELECT * FROM message";
                     $temp = $_SESSION['Nom_client'];
                     $sql = "SELECT * FROM message WHERE '$temp' LIKE Destinataire";//on cherche dans tous les messages de la base de donnée si l'utilisateur est destinataire de certains si oui on lui affiche ses messages

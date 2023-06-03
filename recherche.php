@@ -29,7 +29,7 @@ $specialite = isset($_POST["specialite"])? $_POST["specialite"] : "";
 //identifier BDD
 $database = "sportify";
 //connectez-vous dans BDD
-$db_handle =mysqli_connect("localhost", "root","Mezarnou");
+$db_handle =mysqli_connect("localhost", "root","");
 $db_found = mysqli_select_db($db_handle,$database);
 
 
@@ -88,7 +88,7 @@ if (isset($_POST["barre"])){
           <h5 class="headin5_amrc col_white_amrc pt2">Où nous trouver</h5>
           <p><i class="fa fa-location-arrow"></i> 3 rue Jean Massiet</p>
           <p><i class="fa fa-phone"></i>  +33 16 27 38 49 50  </p>
-          <p><i class="fa fa fa-envelope"></i> info@omnessports.com  </p>
+          <p><a HREF="mailto:info@omnessports.com"><i class="fa fa fa-envelope"></i> info@omnessports.com </a> </p>
         </div>
       </div>
     </div>

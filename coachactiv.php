@@ -14,13 +14,13 @@
   <div class="wrapper">
     <header>
       <h1>Sportify: Consultation sportive</h1>
-      <img src="C:\Users\vylka\Documents\projet_piscine\1296285.jpg" alt="Logo du site">
+      <img src="Images\logo.png" alt="Logo du site">
     </header>   
     
     <nav>
         <a href="Accueil.html">Accueil</a>
         <a href="Tout parcourir.html">Tout parcourir</a>
-        <a href="#">Recherche</a>
+        <a href="recherche.html">Recherche</a>
         <a href="rendezvous.php">Rendez-vous</a>
         <a href="#">Votre compte</a>
       </nav>
@@ -30,7 +30,7 @@
         
         $database = "sportify";
         //connectez-vous dans BDD
-        $db_handle =mysqli_connect("localhost", "root","Mezarnou");
+        $db_handle =mysqli_connect("localhost", "root","");
         $db_found = mysqli_select_db($db_handle,$database);
 
         if ($db_found) {
@@ -74,11 +74,11 @@
             
           }
           if(preg_match("/Natation/",$_SERVER['HTTP_REFERER'])){
-            $sql .= " WHERE Specialite_Coach LIKE '%cNatation%'";
+            $sql .= " WHERE Specialite_Coach LIKE '%natation%'";
             
           }
           if(preg_match("/Plongeon/",$_SERVER['HTTP_REFERER'])){
-            $sql .= " WHERE Specialite_Coach LIKE '%cPlongeon%'";
+            $sql .= " WHERE Specialite_Coach LIKE '%plongeon%'";
             
           }
           $result = mysqli_query($db_handle, $sql);
@@ -90,29 +90,19 @@
               //afficher le resultat
               session_start();
               while ($data = mysqli_fetch_assoc($result)) {
-                  
                 $image = $data['Photo_Coach'];
                 echo"<form action='coachactivB.php' method='post'>";
-                  echo "<table >";
-                  echo "<tr>";
-                  echo "<img src='$image' height='120' width='100'>";
-                  echo "</tr>";
-                  echo "<tr>";
-                  echo "<td>" . "Nom : " . $data['Nom_Coach'] ."</td>";
-                  echo "</tr>";
-                  echo "<tr>";
-                  echo "<td>" . "Prenom : " . $data['Prenom_Coach'] ."</td>";
-                  echo "</tr>";
-                  echo "<tr>";
-                  echo "<td>" . "E-mail : " . $data['Email_Coach'] ."</td>";
-                  echo "</tr>";
-                  echo "<tr>";
-                  echo "<td>" . "Spécialité : " .$data['Specialite_Coach']. "</td>";
-                  echo "</tr>";
-                  echo "</table>";
-                   echo"<form>";
-                  echo "<input type='submit'name=" . $data['Id_Coach'] ." value='Voir'/>";
-                  echo"</br>";
+                echo" <div class='media'>";
+                echo "<br><img src='$image' class='float-start' height='120' width='100'>";
+                echo "<div class='media-body text-center'>";
+                echo "<p>" . "Nom : " . $data['Nom_Coach'] ."<br>";
+                echo  "Prenom : " . $data['Prenom_Coach'] ."<br>";
+                echo "E-mail : " . $data['Email_Coach'] ."<br>";
+                echo "Spécialité : " .$data['Specialite_Coach']. "<br>";
+                echo"<form>";
+                echo "<input type='submit'name=" . $data['Id_Coach'] ." value='Voir'/>";
+                echo "</div>";
+                echo "</div>";     
               }
               
               
@@ -121,7 +111,7 @@
           echo "<p>Database not found.</p>";
       }
       ?>
-        COACHS activité SPORTIVES
+      <br>
       </section>
       
         <footer class="footer">
@@ -131,7 +121,7 @@
             <h5 class="headin5_amrc col_white_amrc pt2">Où nous trouver</h5>
             <p><i class="fa fa-location-arrow"></i> 3 rue Jean Massiet</p>
             <p><i class="fa fa-phone"></i>  +33 16 27 38 49 50  </p>
-            <p><i class="fa fa fa-envelope"></i> info@omnessports.com  </p>
+            <p><a HREF="mailto:info@omnessports.com"><i class="fa fa fa-envelope"></i> info@omnessports.com </a> </p>
           </div>
         </div>
       </div>

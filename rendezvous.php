@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sportify: Consultation sportive</title>
-  <link rel="stylesheet" type="text/css" href="affichage.css">
-  <meta charset="utf-8">
+  <title>Sportify: Rendez-Vous</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="affichage.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="affichage.css"></style>
+<meta charset="utf-8">
 </head>
 <body>
   <div class="wrapper">
@@ -15,7 +19,7 @@
     <nav>
       <a href="Accueil.html">Accueil</a>
       <a href="Tout parcourir.html">Tout parcourir</a>
-      <a href="#">Recherche</a>
+      <a href="recherche.html">Recherche</a>
       <a href="#" id="pageencours">Rendez-vous</a>
       <a href="#">Votre compte</a>
     </nav>
@@ -25,7 +29,7 @@
       <form action="" method="">
         <div class="rendezvous">
             <!--Les rdv surement afficher via traitement php-->
-            <h2 >Mes rendez vous :</h2>
+            <h2 >Mes rendez-vous :</h2>
             
           </div>
       </form>
@@ -38,7 +42,7 @@
     session_start();//pour maintenir la session active
     //connexion à la base de données:
     $database = "sportify";
-    $db_handle = mysqli_connect('localhost','root','Mezarnou');
+    $db_handle = mysqli_connect('localhost','root','');
     $db_found = mysqli_select_db($db_handle, $database);
     
     /*
@@ -67,40 +71,33 @@
         $result = mysqli_query($db_handle,$sql);
         
         if (mysqli_num_rows($result) == 0) {
-          echo "<p>Aucun rendez vous trouvé.</p>";
+          echo "<p class='text-center'>Aucun rendez-vous trouvé.</p>";
           } else {
+            echo" <div class='row text-center'>";
             while ($data = mysqli_fetch_assoc($result)) {
-              echo"<form action='AnnulerRDV.php' method='post'>";
-              echo "<input type='submit'name=" . $data['Id'] ." value='Annuler le RDV'/>";
-              echo "<table border ='1'>";
-              echo "<tr>";
-              echo "<td>" . "Le : " .$jours[$data['Jour']]  ."</td>";
-              echo "</tr>";
-              echo "<tr>";
-              echo "<td>". "A : " .$heures[$data['Heur']]. "</td>";
-              echo "</tr>";
-              $coach=$data['Id_Coach'];
-              $sql="SELECT * FROM coach WHERE Id_Coach LIKE '$coach'";
-              $req= mysqli_query($db_handle,$sql);
-              if (mysqli_num_rows($req) == 0) {
-                echo "<p>Aucun rendez vous trouvé.</p>";
-                } else {
-                  while ($data = mysqli_fetch_assoc($req)) {
-                    echo "<tr>";
-                    echo "<td>". "Nom du Coach : " . $data['Nom_Coach'] ."</td>";
-                    echo "</tr>";
-                    echo "<tr>";
-                    echo "<td>". "Activité : " . $data['Specialite_Coach'] ."</td>";
-                    echo "</tr>";
-                    
-                    
-                    echo "</table>" ; 
-                    
-                   }
-                }
-                echo "</br>" ;
+                echo"<form action='AnnulerRDV.php' method='post'>";
+                echo "<input type='submit'name=" . $data['Id'] ." value='Annuler le RDV'/>";
+                echo "<div class='text-center'>";
+                echo "Le : " .$jours[$data['Jour']]  ."<br>";
+                echo "A : " .$heures[$data['Heur']]. "<br>";
+                $coach=$data['Id_Coach'];
+                $sql="SELECT * FROM coach WHERE Id_Coach LIKE '$coach'";
+                $req= mysqli_query($db_handle,$sql);
+                if (mysqli_num_rows($req) == 0) {
+                  echo "<p>Aucun rendez-vous trouvé.</p>";
+                  } else {
+                    while ($data = mysqli_fetch_assoc($req)) {
+                      echo "Nom du Coach : " . $data['Nom_Coach'] ."<br>";
+                      echo "Activité : " . $data['Specialite_Coach'] ."<br>";
+                      
+                     }
+                  }
+
+                echo "<br>" ;
                 echo"<form>";
+                echo "</div>";
         }
+        echo "</div>";     
         
       }
     }
@@ -114,7 +111,7 @@
             <h5 class="headin5_amrc col_white_amrc pt2">Où nous trouver</h5>
             <p><i class="fa fa-location-arrow"></i> 3 rue Jean Massiet</p>
             <p><i class="fa fa-phone"></i>  +33 16 27 38 49 50  </p>
-            <p><i class="fa fa fa-envelope"></i> info@omnessports.com  </p>
+            <p><a HREF="mailto:info@omnessports.com"><i class="fa fa fa-envelope"></i> info@omnessports.com </a> </p>
           </div>
         </div>
       </div>
