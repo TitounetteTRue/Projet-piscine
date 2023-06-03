@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 03 juin 2023 à 16:07
+-- Généré le : sam. 03 juin 2023 à 22:59
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `calendrier_client` (
   `Jour` int NOT NULL,
   `Heur` int NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -181,6 +181,28 @@ INSERT INTO `coach` (`Id_Coach`, `Nom_Coach`, `Prenom_Coach`, `Photo_Coach`, `Vi
 (10, 'Lucas', 'Philippe', 'Images\\coach10.png', 'rien', 'rien', 'lucas.philippe@salle.omnes.com', 'natation', 'Oui'),
 (11, 'Li You', 'Jian', 'Images\\coach11.png', 'rien', 'rien', 'jian.liyou@salle.omnes.com', 'plongeon', 'Oui'),
 (12, 'Pasquier', 'Daniel', 'Images/coach2.png', 'rien', 'rien', 'daniel.pasquier@salle.omnes.com', 'musculation', 'Non');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `event`
+--
+
+DROP TABLE IF EXISTS `event`;
+CREATE TABLE IF NOT EXISTS `event` (
+  `Id_event` int NOT NULL,
+  `Nom_event` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Image_event` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Date_event` date NOT NULL,
+  PRIMARY KEY (`Id_event`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `event`
+--
+
+INSERT INTO `event` (`Id_event`, `Nom_event`, `Image_event`, `Date_event`) VALUES
+(0, 'Fitness fete des meres', 'Images\\fitness.png', '2023-06-03');
 
 -- --------------------------------------------------------
 

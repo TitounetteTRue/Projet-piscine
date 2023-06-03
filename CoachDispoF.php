@@ -18,7 +18,7 @@
         </header>   
         
         <nav>
-            <a href="Accueil.html">Accueil</a>
+            <a href="Accueil.php">Accueil</a>
             <a href="Tout parcourir.html">Tout parcourir</a>
             <a href="rercherche.php">Recherche</a>
             <a href="rendezvous.php">Rendez-vous</a>
@@ -163,7 +163,7 @@
           </div>
         </div>
       </div>
-      <p class="text-center">Copyright @2023 | Designed With by <a href="accueil.html">Sportify</a></p>
+      <p class="text-center">Copyright @2023 | Designed With by <a href="Accueil.php">Sportify</a></p>
     </footer>
         </div>
 </body>

@@ -48,7 +48,7 @@ $db_found = mysqli_select_db($db_handle, $database);
 	if(isset($_GET['deconnexion'])) {
 		unset($_SESSION['Login']);
 		echo "Déconnecté avec succès!";
-        header('Location:Accueil.html');
+        header('Location:Accueil.php');
 	}
 	if(isset($_SESSION['Login'])) {
 		echo '<p><a style="letter-spacing:0.5px;" href="?deconnexion">Déconnexion</a></p>';
@@ -177,7 +177,7 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:black;width:75px;border-right:1px 
           </div>
         </div>
       </div>
-      <p class="text-center">Copyright @2023 | Designed With by <a href="accueil.html">Sportify</a></p>
+      <p class="text-center">Copyright @2023 | Designed With by <a href="Accueil.php">Sportify</a></p>
     </footer>
         </div>
 </body>

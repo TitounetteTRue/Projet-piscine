@@ -18,7 +18,7 @@
           </header>   
           
           <nav>
-              <a href="Accueil.html">Accueil</a>
+              <a href="Accueil.php">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
               <a href="recherche.php">Recherche</a>
               <a href="rendezvous.php">Rendez-vous</a>
@@ -49,7 +49,7 @@
       if(isset($_GET['deconnexion'])) {
         unset($_SESSION['Log']);
         echo "Déconnecté avec succès!";
-            header('Location:Accueil.html');
+            header('Location:Accueil.php');
       }
       if(isset($_SESSION['Log'])) {
         echo '<p><a style="letter-spacing:0.5px;" href="?deconnexion">Déconnexion</a></p>';
@@ -69,8 +69,6 @@
                 echo "Nom : ".$data['Nom_admin']."<br>";
                 echo "Prenom : " .$data['Prenom_admin']. "<br>";
                 echo "Email : ".$data['Email_admin']."<br>";
-
-                echo "ajout evenements semaine"."<br>";
                      }
                   }
                 echo "<br>" ;
@@ -82,6 +80,12 @@
     <div class="text-center">
         <p>
         <a href="CreationCoachF.php"><button class="btn btn-success">Creer ou Supprimer un Coach</button></a>
+        </p>
+      </div>
+      <br>
+    <div class="text-center">
+        <p>
+        <a href="Ajout_eventF.php"><button class="btn btn-success">Ajouter un Evenement</button></a>
         </p>
       </div>
             </section>
@@ -99,7 +103,7 @@
             </div>
           </div>
         </div>
-        <p class="text-center">Copyright @2023 | Designed With by <a href="accueil.html">Sportify</a></p>
+        <p class="text-center">Copyright @2023 | Designed With by <a href="Accueil.php">Sportify</a></p>
       </footer>
           </div>
   </body>

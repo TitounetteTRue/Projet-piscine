@@ -19,13 +19,13 @@
             </header>   
           
           <nav>
-              <a href="Accueil.html">Accueil</a>
+              <a href="Accueil.php">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
               <a href="recherche.php">Recherche</a>
               <a href="rendezvous.php">Rendez-vous</a>
               <a href="VotreCompteAdmin.php">Votre compte</a>
             </nav>
-         <section>   
+         <section class="container">   
                 <h1>Créer un compte Coach</h1>
                 <form action="CreationCoachB.php" method="post"> 
 
@@ -103,7 +103,7 @@
             </div>
           </div>
         </div>
-        <p class="text-center">Copyright @2023 | Designed With by <a href="accueil.html">Sportify</a></p>
+        <p class="text-center">Copyright @2023 | Designed With by <a href="Accueil.php">Sportify</a></p>
       </footer>
 </div>
 </body>
