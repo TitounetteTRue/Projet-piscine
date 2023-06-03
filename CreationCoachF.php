@@ -44,7 +44,18 @@
                         </tr>
                         <tr>
                             <td>Spécialité : </td>
-                            <td><input type="radio" name="specialite" value="basketball" checked>
+
+                            <td><input type="radio" name="specialite" value="musculation" checked>
+                             Musculation<br>
+                             <input type="radio" name="specialite" value="fitness" checked>
+                             Fitness<br>
+                             <input type="radio" name="specialite" value="biking" checked>
+                             Biking<br>
+                             <input type="radio" name="specialite" value="cardio-training" checked>
+                             Cardio-training<br>
+                             <input type="radio" name="specialite" value="cours collectifs" checked>
+                             Cours Collectifs<br>
+                             <input type="radio" name="specialite" value="basketball" checked>
                              Basketball<br>
                              <input type="radio" name="specialite" value="football">
                             Football<br> 

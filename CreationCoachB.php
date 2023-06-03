@@ -48,6 +48,14 @@
                 }
             }
             $result = mysqli_query($db_handle, $sql);
+            while ($data = mysqli_fetch_assoc($result)) {
+                $id=$data['Id_Coach'];
+                $sql1 = "INSERT INTO user(Nom_user, Prenom_user, Mdp_user, Email_user, Id_user)
+                VALUES('$nom', '$prenom', 'mimic', '$email','$id')";
+                $result1 =mysqli_query($db_handle, $sql1);
+                $_SESSION['Id']=$id;
+               
+            }
             echo "<h2>" . "Informations sur le nouveau coach ajouté:" . "</h2>";
             echo "<table border='1'>";
             echo "<tr>";
@@ -109,6 +117,11 @@
         $sql = "DELETE FROM coach WHERE Id_Coach = $id";
         $result =mysqli_query($db_handle, $sql);
         echo "<p>Delete successful.</p>";
+        while ($data = mysqli_fetch_assoc($result)) {
+            $id=$data['Id_Coach'];
+           
+           
+        }
     }
     //header('Location: CommandeAdminF.php');
     } else {
@@ -116,4 +129,6 @@
     }
 }
     //fermer la connexion
-    mysqli_close($db_handle);?>
+    mysqli_close($db_handle);
+    header('Location: VotreCompteAdmin.php');
+    ?>
