@@ -99,6 +99,7 @@
                 echo  "Prenom : " . $data['Prenom_Coach'] ."<br>";
                 echo "E-mail : " . $data['Email_Coach'] ."<br>";
                 echo "Spécialité : " .$data['Specialite_Coach']. "<br>";
+                echo "Salle de sport : " .$data['salle_sport']. "<br>";
                 echo"<form>";
                 echo "<input type='submit'name=" . $data['Id_Coach'] ." value='Voir'/>";
                 echo "</div>";

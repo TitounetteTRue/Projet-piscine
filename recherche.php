@@ -40,7 +40,7 @@ $db_found = mysqli_select_db($db_handle,$database);
 if (isset($_POST["barre"])){
         if ($db_found) {
             //commencer le query
-            $sql = "SELECT * FROM coach WHERE (Nom_Coach LIKE '%$recherche%') OR (Prenom_Coach LIKE '%$recherche%') OR (Email_Coach LIKE '%$recherche%') OR (Specialite_Coach LIKE '%$recherche%')";
+            $sql = "SELECT * FROM coach WHERE (Nom_Coach LIKE '%$recherche%') OR (Prenom_Coach LIKE '%$recherche%') OR (Email_Coach LIKE '%$recherche%') OR (Specialite_Coach LIKE '%$recherche%')OR (salle_sport LIKE '%$recherche%')";
             $result = mysqli_query($db_handle, $sql);
             //regarder s'il y a des resultats
             if (mysqli_num_rows($result) == 0) {
@@ -57,6 +57,7 @@ if (isset($_POST["barre"])){
                   echo  "Prenom : " . $data['Prenom_Coach'] ."<br>";
                   echo "E-mail : " . $data['Email_Coach'] ."<br>";
                   echo "Spécialité : " .$data['Specialite_Coach']. "<br>";
+                  echo "Salle de Sport : " .$data['salle_sport']. "<br>"; 
                   echo"<form>";
                   echo "<input type='submit'name=" . $data['Id_Coach'] ." value='Voir'/>";
                   echo "</div>";

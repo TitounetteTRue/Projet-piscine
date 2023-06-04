@@ -77,7 +77,8 @@
                         echo "<p>" . "Nom : " . $data['Nom_Coach'] ."<br>";
                         echo  "Prenom : " . $data['Prenom_Coach'] ."<br>";
                         echo "<a HREF='mailto:".$data['Email_Coach']."'>"."E-mail : " . $data['Email_Coach'] ."</a>"."<br>";
-                        echo "Spécialité : " .$data['Specialite_Coach']. "<br>"."</p>"; 
+                        echo "Spécialité : " .$data['Specialite_Coach']. "<br>"; 
+                        echo "Salle de Sport : " .$data['salle_sport']. "<br>"."</p>"; 
                         echo "</div>";
                         echo "</div>";
                         

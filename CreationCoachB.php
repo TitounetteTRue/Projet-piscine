@@ -7,6 +7,7 @@
     $video = isset($_POST["video"])? $_POST["video"] : "";
     $CV = isset($_POST["CV"])? $_POST["CV"] : "";
     $email = isset($_POST["email"])? $_POST["email"] : "";
+    $salle = isset($_POST["salle"])? $_POST["salle"] : "";
     //identifier BDD
     $database = "sportify";
     //connectez-vous dans BDD
@@ -33,8 +34,8 @@
            // exit();
         } else {
             //on ajoute ce coach
-            $sql = "INSERT INTO coach(Nom_Coach, Prenom_Coach, Photo_Coach, Specialite_Coach, Video_Coach, CV_Coach, Email_Coach)
-            VALUES('$nom', '$prenom', '$photo', '$specialite', '$video','$CV','$email')";
+            $sql = "INSERT INTO coach(Nom_Coach, Prenom_Coach, Photo_Coach, Specialite_Coach, Video_Coach, CV_Coach, Email_Coach,salle_sport)
+            VALUES('$nom', '$prenom', '$photo', '$specialite', '$video','$CV','$email','$salle')";
             $result =mysqli_query($db_handle, $sql);
             echo "<p>Add successful.</p>";
             //on affiche le nouveau coach ajouté
@@ -67,6 +68,7 @@
             echo "<th>" . "Video" . "</th>";
             echo "<th>" . "CV" . "</th>";
             echo "<th>" . "E-mail" . "</th>";
+            echo "<th>" . "Salle de sport" . "</th>";
             //afficher le resultat
             while ($data = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
@@ -80,6 +82,7 @@
                 echo "<td>" . "<img src='$image2' height='120' width='100'>" . "</td>";
                 echo "<td>" . $data['CV_Coach'] . "</td>";
                 echo "<td>" . $data['Email_Coach'] . "</td>";
+                echo "<td>" . $data['salle_sport'] . "</td>";
                 echo "</tr>";
             }
             echo "</table>";

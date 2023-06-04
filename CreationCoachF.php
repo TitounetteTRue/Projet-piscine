@@ -82,6 +82,10 @@
                             <td><input type="email" name="email"></td>
                         </tr>
                         <tr>
+                            <td>Salle de Sport(Ville) :</td>
+                            <td><input type="text" name="salle"></td>
+                        </tr>
+                        <tr>
                             <td colspan="2" align="center">
                                 <br>
                                 <input type="submit" name="button1" value="Ajouter">
