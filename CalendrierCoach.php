@@ -33,7 +33,7 @@
     session_start();//pour maintenir la session active
     //connexion à la base de données:
     $database = "sportify";
-    $db_handle = mysqli_connect('localhost','root','Mezarnou');
+    $db_handle = mysqli_connect('localhost','root','');
     $db_found = mysqli_select_db($db_handle, $database);
     
 
@@ -43,16 +43,20 @@
 */
 	
 	//pour vous connecter, entrez votresite.tld/calendrier.php?connexion=votremotdepasse
-	if(isset($_GET['deconnexion'])) {
-		unset($_SESSION['Lgin']);
-		echo "Déconnecté avec succès!";
+	if(isset($_SESSION['Lgin'])==0) {
         header('Location:ConnexionCoachF.php');
-	}
-	if(isset($_SESSION['Id_Coach'])) {
-		echo '<p><a style="letter-spacing:0.5px;" href="?deconnexion">Déconnexion</a></p>';
-        
-	}
+      }
+      if(isset($_GET['deconnexion'])) {
+        unset($_SESSION['Lgin']);
+        echo "Déconnecté avec succès!";
+            header('Location:Accueil.php');
+      }
+      if(isset($_SESSION['Lgin'])) {
+        echo '<p><a style="letter-spacing:0.5px;" href="?deconnexion">Déconnexion</a></p>';
+            
+      }
 	$coach=$_SESSION['Lgin'];
+
 	echo $coach;
 /*
 * Fin du module de connexion/déconnexion
@@ -75,7 +79,7 @@ $periodes = array(1=>"AM",2=>"PM");
 	</tr>
 </table>
 <?php
-if(isset($_SESSION['Id_Coach'])){
+if(isset($_SESSION['Lgin'])){
 	if(
 	//isset($_GET['periode'] AND preg_match("#^(1|2)$#",$_GET['periode'])) AND
 	//isset($_GET['jour'] AND preg_match("#^[1-7]{1}$#",$_GET['jour'])) AND
@@ -143,7 +147,7 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:white;width:75px;border-right:1px 
 			<tr>
 				<td style="<?php echo $JourReserve==1?"background:#FF8888;":"background:#88FF88;"; ?>border-bottom:1px solid #eee;"><?php echo $periodes[$periode]; ?></td>
 				<?php 
-				if(isset($_SESSION['Id_Coach'])) { ?>
+				if(isset($_SESSION['Lgin'])) { ?>
 				<td style="<?php echo $JourReserve==1?"background:#FF8888;":"background:#88FF88;"; ?>border-bottom:1px solid #eee;">
 				<a href="?jour=<?php echo $jour; ?>&amp;periode=<?php echo $periode; ?>&amp; choix=<?php echo $JourReserve==1?0:1; ?>#recap">
 				<img src="Images/images/<?php echo $JourReserve; ?>.png" alt="Action" style="width:13px;" title="<?php echo $JourReserve==1?"Mettre ce jour en Disponible":"Mettre ce jour en Réservé"; ?>" />

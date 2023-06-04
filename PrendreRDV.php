@@ -13,7 +13,7 @@
 <body>
     <div class="wrapper">
         <header>
-          <h1><b>Prendre Rendez-Vous</b></h1>
+          <h1><b>Sportify : Consultation sportive</b></h1>
           <img src="Images\logo.png" alt="Logo du site">
         </header>   
         

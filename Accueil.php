@@ -36,7 +36,7 @@
           <br>
           <br>
           <div id="carrousel">
-            <ul>
+            <ul >
               <img id="1" src="Images\basketball.png" height="170" width="190"/>
               <img id="2" src="Images\football.png" height="170" width="190"/>
               <img id="3" src="Images\musculation.png" height="170" width="190"/>
