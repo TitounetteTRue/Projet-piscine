@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><!--Liens et pages css et javascript pour le code-->
 <title>Sportify: Commande Administrateur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
@@ -13,12 +13,12 @@
 <body>
     
     <div id="wrapper">
-            <header>
+            <header><!--Entete du site web avec le titre et logo-->
             <h1><b>Sportify: Consultation sportive</b></h1>
             <img src="Images\logo.png" alt="Logo du site">
             </header>   
           
-          <nav>
+          <nav><!--Espace navigation avec les différentes fenetres-->
               <a href="Accueil.php">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
               <a href="recherche.html">Recherche</a>
@@ -26,9 +26,10 @@
               <a href="VotreCompteAdmin.php">Votre compte</a>
             </nav>
          <section class="container">   
+            <!--Creation de compte-->
                 <h1>Créer un compte Coach</h1>
                 <form action="CreationCoachB.php" method="post"> 
-
+                    <!--Formulaire de creation-->
                     <table>
                         <tr>
                             <td>Nom : </td>
@@ -85,7 +86,7 @@
                             <td>Salle de Sport(Ville) :</td>
                             <td><input type="text" name="salle"></td>
                         </tr>
-                        <tr>
+                        <tr> <!--Bouton d'ajout ou de Suppression de coach-->
                             <td colspan="2" align="center">
                                 <br>
                                 <input type="submit" name="button1" value="Ajouter">
@@ -96,6 +97,7 @@
                 </form>
                 <br>
 </section>
+<!--Footer avec email, telephone , adresse du site et copyright-->
 <footer class="footer">
         <div class="container bottom_border">
           <div class="row">

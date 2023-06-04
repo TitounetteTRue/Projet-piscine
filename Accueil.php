@@ -1,6 +1,6 @@
   <!DOCTYPE html>
   <html>
-  <header>
+  <header> <!--Liens et pages css et javascript pour le code-->
   <title>Sportify: Consultation sportive</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
@@ -14,12 +14,12 @@
   
   <body>
       <div class="wrapper">
-          <header>
+          <header><!--Entete du site web avec le titre et logo-->
             <h1><b>Sportify: Consultation sportive</b></h1>
             <img src="Images\logo.png" alt="Logo du site">
           </header>   
           
-          <nav>
+          <nav><!--Espace navigation avec les différentes fenetres-->
               <a href="Accueil.php">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
               <a href="recherche.html">Recherche</a>
@@ -28,13 +28,13 @@
             </nav>
             
             <section class="text-center">
-              <br> 
+              <br> <!--Texte d'introduction-->
           <p><b>Bienvenue sur le site Sportify spécialisé dans la consultation sportive.</p></h3>
           <p><b>Nous vous offrons un service de consultation personnalisée pour vous aider à atteindre vos objectifs.Que vous soyez un athlète professionnel ou un amateur passionné, <br>notre équipe d'experts est là pour vous guider et vous accompagner.</b></p>
           <p><b>Que vous ayez besoin de conseils en nutrition, d'un programme d'entraînement sur mesure ou d'une évaluation de votre condition physique, <br>nous sommes là pour répondre à vos besoins.</b></p>
           <p><b>Explorez nos services et n'hésitez pas à nous contacter pour prendre rendez-vous. <br>Nous sommes impatients de vous aider à optimiser vos performances sportives et à vous maintenir en bonne santé.</b></p>
           <br>
-          <br>
+          <br><!--Carrousel D'images-->
           <div id="carrousel">
             <ul >
               <img id="1" src="Images\basketball.png" height="170" width="190"/>
@@ -46,12 +46,12 @@
           </div>
         <br>
         <br>
-
+          <!--Affichage des evenements-->
           <h2 class="text-center">Événements</h2>
           <br>
           <?php
            session_start();
-          ///Revoir Affichage
+          
          $database = "sportify";
          //connectez-vous dans BDD
          $db_handle =mysqli_connect("localhost", "root","");
@@ -62,7 +62,7 @@
               if (mysqli_num_rows($result) == 0) {
                   echo "<p>Event not found</p>";
                 } else {
-                    //on trouve les coach
+                    //on trouve les events
                     //afficher le resultat
                     echo "<div class='row'>";
                     while ($data = mysqli_fetch_assoc($result)) {
@@ -82,7 +82,7 @@
           <br>
         </div>
             </section>
-            
+            <!--Footer avec email, telephone , adresse du site et copyright-->
              <footer class="footer">
         <div class="container bottom_border">
           <div class="row">

@@ -49,6 +49,7 @@
                 }
             }
             $result = mysqli_query($db_handle, $sql);
+            //On cree dans la base de donées user pour le chat
             while ($data = mysqli_fetch_assoc($result)) {
                 $id=$data['Id_Coach'];
                 $sql1 = "INSERT INTO user(Nom_user, Prenom_user, Mdp_user, Email_user, Id_user)

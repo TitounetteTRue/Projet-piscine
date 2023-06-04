@@ -29,7 +29,7 @@
                     $_SESSION['Log'] = $data['Id_admin'];
                     // On redirige vers le fichier admin.php
                     ///redirection vers une nouvelle page
-                    header( 'Location: VotreCompteAdmin.php'); /*CompteCoach.php*/
+                    header( 'Location: VotreCompteAdmin.php'); /*CompteAdmin.php*/
                     
                     exit();
                 }

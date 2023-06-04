@@ -1,6 +1,6 @@
 <!DOCTYPE html>
   <html>
-  <header>
+  <header><!--Liens et pages css et javascript pour le code-->
   <title>Sportify: Compte Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
@@ -12,12 +12,12 @@
   
   <body>
       <div class="wrapper">
-          <header>
+          <header><!--Entete du site web avec le titre et logo-->
             <h1><b>Sportify: Consultation sportive</b></h1>
             <img src="Images\logo.png" alt="Logo du site">
           </header>   
           
-          <nav>
+          <nav><!--Espace navigation avec les différentes fenetres-->
               <a href="Accueil.php">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
               <a href="recherche.html">Recherche</a>
@@ -57,7 +57,7 @@
       }
       
       $id=$_SESSION['Log'];
-      
+      /*Affichage du compte admin */
       if(isset($_SESSION['Log'])){
         $result = mysqli_query($db_handle,"SELECT * FROM admin WHERE Id_admin LIKE'$id'");
         if (mysqli_num_rows($result) == 0) {
@@ -78,26 +78,26 @@
                     
     </div>
     <div class="text-center">
-        <p>
+        <p><!--lien vers suppression ou ajout de coach-->
         <a href="CreationCoachF.php"><button class="btn btn-success">Creer ou Supprimer un Coach</button></a>
         </p>
       </div>
       <br>
       <div class="text-center">
-        <p>
+        <p><!--lien vers ajout CV-->
         <a href="#"><button class="btn btn-success">Ajouter un CV de coach</button></a>
         </p>
       </div>
       <br>
     <div class="text-center">
-        <p>
+        <p><!--lien vers ajout evenements-->
         <a href="Ajout_eventF.php"><button class="btn btn-success">Ajouter un Evenement</button></a>
         </p>
       </div>
             </section>
 
    
-            
+            <!--Footer avec email, telephone , adresse du site et copyright-->
              <footer class="footer">
         <div class="container bottom_border">
           <div class="row">

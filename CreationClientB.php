@@ -50,6 +50,7 @@
             }
             $result = mysqli_query($db_handle, $sql);
             
+            //On l'ajoute dans la base de données user pour l'avoir dans le chat
             while ($data = mysqli_fetch_assoc($result)) {
                 $id=$data['Id_Client'];
                 $sql1 = "INSERT INTO user(Nom_user, Prenom_user, Mdp_user, Email_user, Id_user)

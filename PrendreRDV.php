@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<header>
+<header><!--Liens et pages css et javascript pour le code-->
 <title>Prendre rendez-vous</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
@@ -12,12 +12,12 @@
 
 <body>
     <div class="wrapper">
-        <header>
+        <header><!--Entete du site web avec le titre et logo-->
           <h1><b>Sportify : Consultation sportive</b></h1>
           <img src="Images\logo.png" alt="Logo du site">
         </header>   
         
-        <nav>
+        <nav><!--Espace navigation avec les différentes fenetres-->
             <a href="Accueil.html">Accueil</a>
             <a href="Tout parcourir.html">Tout parcourir</a>
             <a href="rercherche.html">Recherche</a>
@@ -60,7 +60,7 @@ $db_found = mysqli_select_db($db_handle, $database);
 /*
 * Fin du module de connexion/déconnexion
 */
-
+/* Création des heures et jours du calendrier */
 $heures= array(1=>"9:00",2=>"9:20",3=>"9:40",4=>"10:00",5=>"10:20",6=>"10:40",7=>"11:00",8=>"11:20",9=>"11:40",10=>"12:00",11=>"14:00",12=>"14:20",13=>"14:40",14=>"15:00",15=>"15:20",16=>"15:40",17=>"16:00",18=>"16:20",19=>"16:40",20=>"17:00",21=>"17:20",22=>"17:40",23=>"18:00");
 //$jours = array(1=>"Lu",2=>"Ma",3=>"Me",4=>"Je",5=>"Ve",6=>"Sa",0=>"Di");
 $periodes = array(1=>"AM",2=>"PM");
@@ -80,6 +80,7 @@ $PM=array(11=>"14:00",12=>"14:20",13=>"14:40",14=>"15:00",15=>"15:20",16=>"15:40
 	</tr>
 </table>
 <?php
+/* Prise du choix du rendez vous*/
 if(isset($_SESSION['Login'])){
 	if(
 	//isset($_GET['periode'] AND preg_match("#^(1|2)$#",$_GET['periode'])) AND
@@ -93,14 +94,15 @@ if(isset($_SESSION['Login'])){
 			VALUES('$id_coach','$id','$jour','$heur')";
 			
 			if(mysqli_query($db_handle,$sql)) {
-				
+				/*Prise du rendez vous */
 				echo "Jour mise en \"réservé\" avec succès !";
 			} else {
-				
+				/*Sinon erreur */
 				echo "Une erreur s'est produite1:<br />".mysqli_error($db_handle);
 			}
 		} if($_GET['choix']==0) {
 			if(mysqli_query($db_handle,"DELETE FROM calendrier_client WHERE Id_Coach='$id_coach' AND Id_Client='$id' AND heur='$heur' AND Jour='$jour'")) {
+				/*On lache le rendez-vous*/
 				echo "Journée mise en \"disponible\" avec succès !";
 			} else {
 				echo "Une erreur s'est produite2:<br />".mysqli_error($db_handle);
@@ -111,7 +113,7 @@ if(isset($_SESSION['Login'])){
 $StyleTh="text-shadow: 1px 1px 1px #000;color:black;width:75px;border-right:1px solid black;border-bottom:1px solid black;";
 ?>
 <table style="border:1px solid black;border-collapse:collapse;box-shadow: 10px 10px 5px #888888;">
-
+<!--Les jours de la semaine-->
 	<tr style="border-right:1px solid black;">
 					<th style="<?php echo $StyleTh; ?>">Lundi</th>
 					<th style="<?php echo $StyleTh; ?>">Mardi</th>
@@ -124,6 +126,7 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:black;width:75px;border-right:1px 
 	</tr>
 	<tr>
 		<?php
+		/*On rempli le tableau */
 		for($jour=1;$jour<=7;$jour++) {
 			for($heur=1;$heur<=23;$heur++){
 				if($heur==1){
@@ -143,6 +146,7 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:black;width:75px;border-right:1px 
 			<tr>
 				<td style="<?php echo $JourReserve==1?"background:#FF8888;":"background:#88FF88;"; ?>border-bottom:1px solid #eee;"><?php echo $heures[$heur]; ?></td>
 				<?php 
+				/*Affichage du Rendez vous dans la zone prise */
 				if(isset($_SESSION['Login'])) { ?>
 				<td style="<?php echo $JourReserve==1?"background:#FF8888;":"background:#88FF88;"; ?>border-bottom:1px solid #eee;">
 				<a href="?jour=<?php echo $jour; ?>&amp;heur=<?php echo $heur; ?>&amp; choix=<?php echo $JourReserve==1?0:1; ?>#recap">
@@ -162,9 +166,9 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:black;width:75px;border-right:1px 
 	
 </table>
 <br>
-            
-            <a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-50-hover" href="Tout parcourir.html"> RETOUR A LA PAGE PRECEDENTE</a>
-
+            <!--Lien vers la page tout parcourir-->
+            <a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-50-hover" href="Tout parcourir.html"> RETOUR A LA PAGE TOUT PARCOURIR</a>
+			<!--Footer avec email, telephone , adresse du site et copyright-->
           </section>
           <footer class="footer">
       <div class="container bottom_border">

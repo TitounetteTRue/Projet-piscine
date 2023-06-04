@@ -64,7 +64,7 @@ $db_found = mysqli_select_db($db_handle,$database);
     if(isset($_POST["envoyer"])){
 
         //ON met ici le chat en code 
-        //SELECTIONNER DANS LA Base de donnée nom de l'utilisateur correspondent a l'emaiil de l'utilisateur
+        //SELECTIONNER DANS LA Base de donnée nom de l'utilisateur correspondent a l'email de l'utilisateur
         $ID = $_SESSION['ID_client'];
         $nom = $_SESSION['Nom_client'];
         //echo "ici le nom : ".$_SESSION['ID_client'];  
@@ -80,7 +80,7 @@ $db_found = mysqli_select_db($db_handle,$database);
                 echo "ERREUR de requête". mysqli_error($db_handle);
 
             } else {
-                //echo "Requête effectuer";
+                echo "Requête effectuée"."<br>";
             }
         }
         //$sql = "SELECT * FROM message";

@@ -34,9 +34,8 @@
             //on affiche le nouveau event ajouté
             $sql = "SELECT * FROM event";
             if ($nom != "") {
-                //on recherche le client par son nom
+                //on recherche l'event par son nom
                 $sql .= " WHERE Nom_event LIKE '%$nom%'";
-                //on cherche ce client par son prenom aussi
             }
             $result = mysqli_query($db_handle, $sql);
             echo "<h2>" . "Informations sur le nouveau event ajouté:" . "</h2>";

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><!--Liens et pages css et javascript pour le code-->
 <title>Sportify :CONNEXION CLIENT</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
@@ -12,12 +12,12 @@
 </head>
 <body>
 <div class="wrapper">
-          <header>
+          <header><!--Entete du site web avec le titre et logo-->
             <h1><b>Sportify: Consultation sportive</b></h1>
             <img src="Images\logo.png" alt="Logo du site">
           </header>   
           
-          <nav>
+          <nav><!--Espace navigation avec les différentes fenetres-->
               <a href="Accueil.php">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
               <a href="recherche.html">Recherche</a>
@@ -27,11 +27,11 @@
             
             <section class="nav">
             <div id="rightcolumn">
-
+              <!--Page connexion-->
                 <h1>Se connecter </h1>
 
-                <form action="ConnexionCoachB.php" method="post"> <!--Il faut écrire le traitementFormulaire.php-->
-
+                <form action="ConnexionCoachB.php" method="post">
+    <!--Formulaire de connexion-->
     <table>
         <tr>
             <td>E-mail : </td>
@@ -49,7 +49,7 @@
 </div>
 
             </section>
-            
+            <!--Footer avec email, telephone , adresse du site et copyright-->
              <footer class="footer">
         <div class="container bottom_border">
           <div class="row">

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
   <html>
-  <header>
+  <header><!--Liens et pages css et javascript pour le code-->
   <title>Sportify: Compte Coach</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
@@ -12,12 +12,12 @@
   
   <body>
       <div class="wrapper">
-          <header>
+          <header><!--Entete du site web avec le titre et logo-->
             <h1><b>Sportify: Consultation sportive</b></h1>
             <img src="Images\logo.png" alt="Logo du site">
           </header>   
           
-          <nav>
+          <nav><!--Espace navigation avec les différentes fenetres-->
               <a href="Accueil.php">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
               <a href="recherche.html">Recherche</a>
@@ -27,7 +27,6 @@
             
             <section class="text-center">
                     <div class="mon compte">
-            <!--Le compte client via traitement php-->
             <h2 >Planning</h2>
             <?php 
     session_start();//pour maintenir la session active
@@ -99,7 +98,7 @@ if(isset($_SESSION['Lgin'])){
         }
 			$sql="INSERT INTO calendrier(Id_Coach, Periode, Jour, AM, PM)
 			VALUES('$coach','$periode','$jour','$AM','$PM')";
-			
+			//On affiche les jours libres ou non pris par le coach
 			if(mysqli_query($db_handle,$sql)) {
 				
 				echo "Jour mise en \"réservé\" avec succès !";
@@ -120,7 +119,7 @@ if(isset($_SESSION['Lgin'])){
 $StyleTh="text-shadow: 1px 1px 1px #000;color:white;width:75px;border-right:1px solid black;border-bottom:1px solid black;";
 ?>
 <table style="border:1px solid black;border-collapse:collapse;box-shadow: 10px 10px 5px #888888;">
-
+    <!--affichage du calendrier-->
 	<tr style="border-right:1px solid black;">
 					<th style="<?php echo $StyleTh; ?>background:#FF3333">Lundi</th>
 					<th style="<?php echo $StyleTh; ?>background:#FF9933">Mardi</th>
@@ -168,7 +167,7 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:white;width:75px;border-right:1px 
 </section>
 
    
-            
+            <!--Footer avec email, telephone , adresse du site et copyright-->
              <footer class="footer">
         <div class="container bottom_border">
           <div class="row">

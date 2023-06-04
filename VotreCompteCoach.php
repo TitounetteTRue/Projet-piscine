@@ -1,6 +1,6 @@
 <!DOCTYPE html>
   <html>
-  <header>
+  <header><!--Liens et pages css et javascript pour le code-->
   <title>Sportify: Compte Coach</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
@@ -12,12 +12,12 @@
   
   <body>
       <div class="wrapper">
-          <header>
+          <header> <!--Entete du site web avec le titre et logo-->
             <h1><b>Sportify: Consultation sportive</b></h1>
             <img src="Images\logo.png" alt="Logo du site">
           </header>   
           
-          <nav>
+          <nav><!--Espace navigation avec les différentes fenetres-->
               <a href="Accueil.php">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
               <a href="recherche.html">Recherche</a>
@@ -27,7 +27,7 @@
             
             <section class="text-center">
                     <div class="mon compte">
-            <!--Le compte client via traitement php-->
+            <!--Le compte coach via traitement php-->
             <h2 >Mon compte</h2>
             <?php 
     session_start();//pour maintenir la session active
@@ -57,7 +57,7 @@
       }
       
       $id=$_SESSION['Lgin'];
-      
+      /*Affichage du compte coach */
       if(isset($_SESSION['Lgin'])){
         $result = mysqli_query($db_handle,"SELECT * FROM coach WHERE Id_Coach LIKE'$id'");
         if (mysqli_num_rows($result) == 0) {
@@ -69,6 +69,7 @@
                 echo "Nom : ".$data['Nom_Coach']."<br>";
                 echo "Prenom : " .$data['Prenom_Coach']. "<br>";
                 echo "Email : ".$data['Email_Coach']."<br>";
+                /*Lien vers calendrier coach */
                 echo "<a href='CalendrierCoach.php'>modif calendrier coach</a>"."<br>";
                      }
                   }
@@ -80,13 +81,13 @@
      </div>
       <div class="text-center">
         <p>
+          <!--lien vers chat pour connexion-->
         <a href="login.html"><button class="btn btn-success">Voir le Chat</button></a>
         </p>
       </div>
 </section>
 
-   
-            
+        <!--Footer avec email, telephone , adresse du site et copyright-->
              <footer class="footer">
         <div class="container bottom_border">
           <div class="row">

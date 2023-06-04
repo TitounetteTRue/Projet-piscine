@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<header>
+<header><!--Liens et pages css et javascript pour le code-->
 <title>Coach Disponibilite</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
@@ -12,12 +12,12 @@
 
 <body>
     <div class="wrapper">
-        <header>
+        <header><!--Entete du site web avec le titre et logo-->
           <h1><b>Sportify: Consultation sportive</b></h1>
           <img src="Images\logo.png" alt="Logo du site">
         </header>   
         
-        <nav>
+        <nav><!--Espace navigation avec les différentes fenetres-->
             <a href="Accueil.php">Accueil</a>
             <a href="Tout parcourir.html">Tout parcourir</a>
             <a href="recherche.html">Recherche</a>
@@ -66,7 +66,7 @@
               if (mysqli_num_rows($result) == 0) {
               echo "<p>Coach not found.</p>";
                 } else {
-                    //on trouve les coach
+                    //on trouve les coachs
                     //afficher le resultat
                     while ($data = mysqli_fetch_assoc($result)) {
                       
@@ -88,7 +88,7 @@
                 }?>
                 
               </a>
-            </p>
+            </p><!--Liens vers le chat, la page, la prise de rendez-vous-->
                 <br>
             <div class="text-center">
               <p>
@@ -105,7 +105,7 @@
               <a href="PrendreRDV.php"><button class="btn btn-success">Prendre RDV</button></a>
               </p>
             </div>
-            <br>
+            <br><!--Affichage du calendrier du coach-->
             <table style="border:1px solid black;border-collapse:collapse;box-shadow: 10px 10px 5px #888888;" class="text-center">
 
                 <tr style="border-right:1px solid black;">
@@ -149,10 +149,11 @@
                 
             </table>
              <br>
-            
-            <a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-50-hover" href="Tout parcourir.html"> RETOUR A LA PAGE PRECEDENTE</a>
+            <!--Lien vers tout parcourir-->
+            <a class="link-offset-2 link-underline link-underline-opacity-0 link-opacity-50-hover" href="Tout parcourir.html"> RETOUR A LA PAGE TOUT PARCOURIR</a>
 
           </section>
+          <!--Footer avec email, telephone , adresse du site et copyright-->
           <footer class="footer">
       <div class="container bottom_border">
         <div class="row">

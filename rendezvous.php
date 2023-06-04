@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><!--Liens et pages css et javascript pour le code-->
   <title>Sportify: Rendez-Vous</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
@@ -11,12 +11,12 @@
 </head>
 <body>
   <div class="wrapper">
-    <header>
+    <header><!--Entete du site web avec le titre et logo-->
       <h1><b>Sportify: Consultation sportive</b></h1>
       <img src="Images\logo.png" alt="Logo du site">
     </header>   
     
-    <nav>
+    <nav><!--Espace navigation avec les différentes fenetres-->
       <a href="Accueil.php">Accueil</a>
       <a href="Tout parcourir.html">Tout parcourir</a>
       <a href="recherche.html">Recherche</a>
@@ -36,7 +36,7 @@
 
     </section>
     <?php 
-    
+    /* Création des heures et jours du calendrier */
     $heures= array(1=>"9:00",2=>"9:20",3=>"9:40",4=>"10:00",5=>"10:20",6=>"10:40",7=>"11:00",8=>"11:20",9=>"11:40",10=>"12:00",11=>"14:00",12=>"14:20",13=>"14:40",14=>"15:00",15=>"15:20",16=>"15:40",17=>"16:00",18=>"16:20",19=>"16:40",20=>"17:00",21=>"17:20",22=>"17:40",23=>"18:00");
     $jours = array(1=>"Lundi",2=>"Mardi",3=>"Mercredi",4=>"Jeudi",5=>"Vendredi",6=>"Samedi",7=>"Dimanche");
     session_start();//pour maintenir la session active
@@ -58,18 +58,18 @@
       if(isset($_GET['deconnexion'])) {
         unset($_SESSION['Login']);
         echo "Déconnecté avec succès!";
-            header('Location:Accueil.html');
+            header('Location:Accueil.php');
       }
       if(isset($_SESSION['Login'])) {
         echo '<p><a style="letter-spacing:0.5px;" href="?deconnexion">Déconnexion</a></p>';
             
       }
       $id=$_SESSION['Login'];
-      
+      /* Page avec les rendez vous*/
       if(isset($_SESSION['Login'])){
         $sql="SELECT * FROM calendrier_Client WHERE Id_Client LIKE'$id'";
         $result = mysqli_query($db_handle,$sql);
-        
+        /*Affichage des rendez vous avec le coach */
         if (mysqli_num_rows($result) == 0) {
           echo "<p class='text-center'>Aucun rendez-vous coach trouvé.</p>";
           } else {
@@ -104,7 +104,7 @@
         
         $sql="SELECT * FROM calendrier_salle WHERE Id_Client LIKE'$id'";
         $result = mysqli_query($db_handle,$sql);
-        
+        /*Affichage des rendez-vous salle de sport */
         if (mysqli_num_rows($result) == 0) {
           echo "<p class='text-center'>Aucun rendez-vous salle trouvé.</p>";
           } else {
@@ -127,6 +127,7 @@
     }
 
     ?>
+     <!--Footer avec email, telephone , adresse du site et copyright-->
      <footer class="footer">
       <div class="container bottom_border">
         <div class="row">

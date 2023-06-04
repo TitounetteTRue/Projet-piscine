@@ -33,7 +33,7 @@
                     $_SESSION['Login'] = $data['Id_Client'];
                     // On redirige vers le fichier admin.php
                     ///redirection vers une nouvelle page
-                    header( 'Location: Tout parcourir.html'); /*CompteCoach.php*/
+                    header( 'Location: Tout parcourir.html'); /*CompteClient.php*/
                     
                     exit();
                 }

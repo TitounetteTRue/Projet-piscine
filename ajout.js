@@ -1,5 +1,5 @@
 var events = [];
-
+//On ajoute l'evenement
 function ajouterEvent() {
   var titre = document.getElementById("titre").value;
   var lien = document.getElementById("lien").value;
@@ -14,7 +14,7 @@ function ajouterEvent() {
         image: e.target.result
       };
       events.push(event);
-      
+      //il prend les trois informations donné par l'admin
       document.getElementById("titre").value = "";
       document.getElementById("lien").value = "";
       document.getElementById("image").value = "";
@@ -26,7 +26,7 @@ function ajouterEvent() {
     alert("Veuillez remplir tous les champs du formulaire.");
   }
 }
-
+//Il affiche les evenements
 function afficherEvents() {
   var eventsContainer = document.getElementById("eventsContainer");
   eventsContainer.innerHTML = "";
