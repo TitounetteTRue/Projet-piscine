@@ -1,78 +1,105 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .wrapper {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /*padding-bottom: 10px;*/
-    border-bottom: 1px solid #ccc;
-  }
-  
-   header h1 {
-    font-size: 24px;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #ccc;
-  }
-
-  nav a {
-    display: inline-block;
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #ccc;
-  }
-  
-  header img {
-    width: 144px;
-    height: 81px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-  #carrousel {
-    position: relative;
-    height: 200px;
-    width: 700px;
-    margin: auto;
+body {
+  font-family: Arial, sans-serif;
 }
 
-
-/*POur les pages activités sportives et sport compétitives (Musculation,...)*/
-  .h2{
-    text-align: center;
-  }
-  .ul1{
-    text-align: left ;
-    padding-left: 50px;
-  }
-
-  .p4{
-    text-align: center;
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-  .p5{
-    text-align: justify;
-  }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*padding-bottom: 10px;*/
+  border-bottom: 1px solid #ccc;
+}
+
+ header h1 {
+  font-size: 24px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+nav a {
+  display: inline-block;
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+}
+
+header img {
+  width: 144px;
+  height: 81px;
+}
+
+/*Carrousel d'image*/
+#carrousel {
+  position: relative;
+  height: 200px;
+  width: 260px;
+  margin: auto;
+}
+
+#carrousel ul{
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+} 
+
+ 
+/*Css du bouton precedent avec la souris qui devient un pointeur*/
+.prev{
+  position: absolute; 
+  color : black;
+  width : 65px;
+  cursor : pointer;
+  left: 0px;
+  top : 200px;
+}
+
+/*Css du bouton suivant avec la souris qui devient un pointeur*/
+.next{
+  position: absolute; 
+  color : black;
+  width : 50px;
+  cursor : pointer;
+  left: 180px;
+  top : 200px;
+
+
+/*Pour les pages activités sportives et sport compétitives (Musculation,...)*/
+.h2{
+  text-align: center;
+}
+.ul1{
+  text-align: left ;
+  padding-left: 50px;
+}
+
+.p4{
+  text-align: center;
+}
+
+.p5{
+  text-align: justify;
+}
