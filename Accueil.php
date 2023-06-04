@@ -43,27 +43,25 @@
         <br>
 
           <h2>Événements</h2>
-          <div id="eventsContainer"></div> 
-          <?
+          <br>
+          <?php
+           session_start();
           ///Revoir Affichage
          $database = "sportify";
          //connectez-vous dans BDD
          $db_handle =mysqli_connect("localhost", "root","");
          $db_found = mysqli_select_db($db_handle,$database);
-
-          $sql="SELECT * FROM event";
-          $result = mysqli_query($db_handle,$sql);
+         if ($db_found) {
+          $result = mysqli_query($db_handle,"SELECT * FROM event");
               
               if (mysqli_num_rows($result) == 0) {
-              echo "<p>"."Event not found"."</p>";
-                } 
-                else {
+                  echo "<p>Event not found</p>";
+                } else {
                     //on trouve les coach
                     //afficher le resultat
-                    session_start();
-                    echo" <div class='row'>";
+                    echo "<div class='row'>";
                     while ($data = mysqli_fetch_assoc($result)) {
-                        echo" <div class='col-lg-4 col-md-4 col-sm-12'>";
+                        echo "<div class='col-lg-4 col-md-4 col-sm-12'>";
                         $image = $data['Image_event'];
                         echo "<br><img src='$image' height='150' width='300'>";
                         echo "<p>" . "Evenement : " . $data['Nom_event'] ."<br>";
@@ -74,7 +72,7 @@
                     echo "</div>";
                     
                 }
-          }
+              }
           ?>
           <br>
         </div>
