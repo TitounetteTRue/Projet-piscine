@@ -164,6 +164,7 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:white;width:75px;border-right:1px 
 	</tr>
 	
 </table>
+<br>
 </section>
 
    
