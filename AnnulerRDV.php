@@ -23,7 +23,6 @@
                 $res =mysqli_query($db_handle, $sql1);
                 
                 //echo "<p>Delete successful.</p>";
-                header('Location: rendezvous.php');
             }
             
             
@@ -32,6 +31,30 @@
             }
         }
     }
-
+    $sql="SELECT * FROM calendrier_salle WHERE Id_Client LIKE'$id'";
+    echo "<p>Id client</p>";
+    $result = mysqli_query($db_handle,$sql);
+    if (mysqli_num_rows($result) == 0) {
+        echo "<p>Aucun rendez vous trouvé.</p>";
+        } else {
+          while ($data = mysqli_fetch_assoc($result)) {
+            if (isset($_POST[$data['Id']])) {
+            if ($db_found) {
+                $seance=$data['Id'];
+                //on supprime cet item par son ID
+                $sql1 = "DELETE FROM calendrier_salle WHERE Id =' $seance'";
+                $res =mysqli_query($db_handle, $sql1);
+                echo "<p>Delete successful.</p>";
+               
+            }
+            
+            
+            } else {
+                echo "<p>Database not found.</p>";
+            }
+        }
+    }
             //fermer la connexion
-            mysqli_close($db_handle);?>
+            mysqli_close($db_handle);
+            header('Location: rendezvous.php');
+            ?>

@@ -71,7 +71,7 @@
         $result = mysqli_query($db_handle,$sql);
         
         if (mysqli_num_rows($result) == 0) {
-          echo "<p class='text-center'>Aucun rendez-vous trouvé.</p>";
+          echo "<p class='text-center'>Aucun rendez-vous coach trouvé.</p>";
           } else {
             echo" <div class='row text-center'>";
             while ($data = mysqli_fetch_assoc($result)) {
@@ -84,7 +84,7 @@
                 $sql="SELECT * FROM coach WHERE Id_Coach LIKE '$coach'";
                 $req= mysqli_query($db_handle,$sql);
                 if (mysqli_num_rows($req) == 0) {
-                  echo "<p>Aucun rendez-vous trouvé.</p>";
+                  echo "<p>Aucun rendez-vous coach trouvé.</p>";
                   } else {
                     while ($data = mysqli_fetch_assoc($req)) {
                       echo "Nom du Coach : " . $data['Nom_Coach'] ."<br>";
@@ -96,12 +96,35 @@
                 echo "<br>" ;
                 echo"<form>";
                 echo "</div>";
-        }
-        echo "</div>";     
+                }
+            echo "</div>";     
+      
+            }
+      
         
-      }
+        $sql="SELECT * FROM calendrier_salle WHERE Id_Client LIKE'$id'";
+        $result = mysqli_query($db_handle,$sql);
+        
+        if (mysqli_num_rows($result) == 0) {
+          echo "<p class='text-center'>Aucun rendez-vous salle trouvé.</p>";
+          } else {
+            echo" <div class='row text-center'>";
+            while ($data = mysqli_fetch_assoc($result)) {
+                echo"<form action='AnnulerRDV.php' method='post'>";
+                echo "<input type='submit'name=" . $data['Id'] ." value='Annuler le RDV'/>";
+                echo "<div class='text-center'>";
+                echo "<br>"."Rendez-vous Salle de Sport"."<br>";
+                echo "Le : ".$jours[$data['Jour']]."<br>";
+                ///Voir pour affichage heure
+                echo "<br>" ;
+                echo"<form>";
+                echo "</div>";
+               }
+           echo "</div>";     
+        
+          }
+      
     }
-
 
     ?>
      <footer class="footer">
