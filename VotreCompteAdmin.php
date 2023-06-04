@@ -20,7 +20,7 @@
           <nav>
               <a href="Accueil.php">Accueil</a>
               <a href="Tout parcourir.html">Tout parcourir</a>
-              <a href="recherche.php">Recherche</a>
+              <a href="recherche.html">Recherche</a>
               <a href="rendezvous.php">Rendez-vous</a>
               <a href="VotreCompteAdmin.php">Votre compte</a>
             </nav>
@@ -80,6 +80,12 @@
     <div class="text-center">
         <p>
         <a href="CreationCoachF.php"><button class="btn btn-success">Creer ou Supprimer un Coach</button></a>
+        </p>
+      </div>
+      <br>
+      <div class="text-center">
+        <p>
+        <a href="#"><button class="btn btn-success">Ajouter un CV de coach</button></a>
         </p>
       </div>
       <br>

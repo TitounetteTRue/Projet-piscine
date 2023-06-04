@@ -2,8 +2,12 @@
 <html>
 <head>
   <title>Sportify: Consultation sportive</title>
-  <link rel="stylesheet" type="text/css" href="affichage.css">
-  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="affichage.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="affichage.css"></style>
+<meta charset="utf-8">
 </head>
 <body>
   <div class="wrapper">
@@ -15,20 +19,11 @@
     <nav>
       <a href="Accueil.php">Accueil</a>
       <a href="Tout parcourir.html">Tout parcourir</a>
-      <a href="#" id="pageencours">Recherche</a>
+      <a href="recherche.html">Recherche</a>
       <a href="rendezvous.php">Rendez-vous</a>
       <a href="Votrecompte.html">Votre compte</a>
     </nav>
     <section>
-    <div class="rechercher">
-        <form action="recherche.php" method="post">
-            <input type="search" class ="barre"name="nom" placeholder="Nom...">
-            <input type="search" class ="barre"name="prenom" placeholder="Prenom...">
-            <input type="search" class ="barre"name="specialite" placeholder="Spécialité">
-            <input type="search" class ="barre"name="email" placeholder="E-mail...">
-            <input type="submit" class ="barre" value="Recherche">
-        </form>
-    </div>
 <?php 
 
 $nom = isset($_POST["nom"])? $_POST["nom"] : "";
@@ -46,43 +41,41 @@ $db_found = mysqli_select_db($db_handle,$database);
 if (isset($_POST["barre"])){
         if ($db_found) {
             //commencer le query
-            $sql = "SELECT * FROM user";
+            $sql = "SELECT * FROM coach";
             if ($nom != "") {
                 //on recherche le livre par son titre
-                $sql .= " WHERE Nom_user LIKE '%$nom%'";
-                
+                $sql .= "WHERE Nom_Coach LIKE '%$nom%'";
+                if ($prenom != "") {
+                  $sql .= " AND Prenom_Coach LIKE '%$prenom%'";
+               }
+               if ($email != "") {
+                  $sql .= " AND Email_Coach LIKE '%$email%'";
+               }
+               if($specialite !=""){
+                $sql .= " AND Specialite_Coach LIKE '%$specialite%'";
+               }
              }
-             //on cherche ce livre par son auteur aussi
-             if ($prenom != "") {
-              $sql .= " AND Prenom_user LIKE '%$prenom%'";
-           }
-           if ($email != "") {
-              $sql .= " AND Email_user LIKE '%$email%'";
-           }
+
             $result = mysqli_query($db_handle, $sql);
             //regarder s'il y a des resultats
             if (mysqli_num_rows($result) == 0) {
                 echo "<p> People not found.</p>";
-            } else {
-                //on trouve la personne
-                echo "<table border='1'>";
-                echo "<tr>";
-                echo "<th>" . "ID" . "</th>";
-                echo "<th>" . "Nom" . "</th>";
-                echo "<th>" . "Prenom" . "</th>";
-                echo "<th>" . "E-mail" . "</th>";
-                
+            } else {                
                 //afficher le resultat
                 while ($data = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $data['Id_user'] . "</td>";
-                    echo "<td>" . $data['Nom_user'] . "</td>";
-                    echo "<td>" . $data['Prenom_user'] . "</td>";
-                    echo "<td>" . $data['Email_user'] . "</td>";
-                    
-                    echo "</tr>";
+                  echo"<form action='coachactivB.php' method='post'>";
+                  echo" <div class='media'>";
+                  echo "<br><img src='$image' class='float-start' height='120' width='100'>";
+                  echo "<div class='media-body text-center'>";
+                  echo "<p>" . "Nom : " . $data['Nom_Coach'] ."<br>";
+                  echo  "Prenom : " . $data['Prenom_Coach'] ."<br>";
+                  echo "E-mail : " . $data['Email_Coach'] ."<br>";
+                  echo "Spécialité : " .$data['Specialite_Coach']. "<br>";
+                  echo"<form>";
+                  echo "<input type='submit'name=" . $data['Id_Coach'] ." value='Voir'/>";
+                  echo "</div>";
+                  echo "</div>";     
                 }
-                echo "</table>";
             }
         } else {
             echo "<p>Database not found.</p>";

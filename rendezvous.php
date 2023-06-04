@@ -19,7 +19,7 @@
     <nav>
       <a href="Accueil.php">Accueil</a>
       <a href="Tout parcourir.html">Tout parcourir</a>
-      <a href="recherche.php">Recherche</a>
+      <a href="recherche.html">Recherche</a>
       <a href="#" id="pageencours">Rendez-vous</a>
       <a href="Votrecompte.html">Votre compte</a>
     </nav>
@@ -58,7 +58,7 @@
       if(isset($_GET['deconnexion'])) {
         unset($_SESSION['Login']);
         echo "Déconnecté avec succès!";
-            header('Location:Accueil.php');
+            header('Location:Accueil.html');
       }
       if(isset($_SESSION['Login'])) {
         echo '<p><a style="letter-spacing:0.5px;" href="?deconnexion">Déconnexion</a></p>';
