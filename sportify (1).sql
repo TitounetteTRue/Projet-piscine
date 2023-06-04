@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 04 juin 2023 à 14:49
+-- Généré le : dim. 04 juin 2023 à 15:56
 -- Version du serveur : 8.0.31
 -- Version de PHP : 8.0.26
 
@@ -162,6 +162,7 @@ CREATE TABLE IF NOT EXISTS `coach` (
   `Email_Coach` varchar(255) NOT NULL,
   `Specialite_Coach` varchar(255) NOT NULL,
   `Compétition` varchar(255) NOT NULL,
+  `salle_sport` varchar(255) NOT NULL,
   PRIMARY KEY (`Id_Coach`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -169,20 +170,20 @@ CREATE TABLE IF NOT EXISTS `coach` (
 -- Déchargement des données de la table `coach`
 --
 
-INSERT INTO `coach` (`Id_Coach`, `Nom_Coach`, `Prenom_Coach`, `Photo_Coach`, `Video_Coach`, `CV_Coach`, `Email_Coach`, `Specialite_Coach`, `Compétition`) VALUES
-(1, 'De Ville', 'Jean', 'Images\\coach1.png', 'rien', '', 'jean.deville@salle.omnes.com', 'musculation', 'Non'),
-(2, 'Marcelin', 'Jacques', 'Images\\coach2.png', 'rien', '', 'jacques.marcelin@salle.omnes.com', 'fitness', 'Non'),
-(3, 'Beignet', 'Gabrielle', 'Images\\coach3.png', 'rien', '', 'gabrielle.beignet@salle.omnes.com', 'biking', 'Non'),
-(4, 'Savret', 'Paulin', 'Images\\coach4.png', 'rien', '', 'paulin.savret@salle.omnes.com', 'cardio-training', 'Non'),
-(5, 'Racht', 'Yann', 'Images\\coach5.png', 'rien', '', 'yann.racht@salle.omnes.com', 'cours collectifs', 'Non'),
-(6, 'Junkins', 'Jeff', 'Images\\coach12.png', 'rien', '', 'jeff.junkins@salle.omnes.com', 'basketball', 'Oui'),
-(7, 'Zinedine', 'Zidane', 'Images\\coach7.png', 'rien', '', 'zinedine.zidane@salle.omnes.com', 'football', 'Oui'),
-(8, 'Travers', 'Laurent', 'Images\\coach8.png', 'rien', '', 'laurent.travers@salle.omnes.com', 'rugby', 'Oui'),
-(9, 'Williams', 'Serena', 'Images\\coach9.png', 'rien', '', 'serena.williams@salle.omnes.com', 'tennis', 'Oui'),
-(10, 'Lucas', 'Philippe', 'Images\\coach10.png', 'rien', '', 'lucas.philippe@salle.omnes.com', 'natation', 'Oui'),
-(11, 'Li You', 'Jian', 'Images\\coach11.png', 'rien', '', 'jian.liyou@salle.omnes.com', 'plongeon', 'Oui'),
-(12, 'Pasquier', 'Daniel', 'Images/coach2.png', 'rien', '', 'daniel.pasquier@salle.omnes.com', 'musculation', 'Non'),
-(14, 'Jean', 'Marie', 'Imagescoach3.png', 'rien', '', 'marie.jean@salle.omnes.com', 'rugby', '');
+INSERT INTO `coach` (`Id_Coach`, `Nom_Coach`, `Prenom_Coach`, `Photo_Coach`, `Video_Coach`, `CV_Coach`, `Email_Coach`, `Specialite_Coach`, `Compétition`, `salle_sport`) VALUES
+(1, 'De Ville', 'Jean', 'Images\\coach1.png', 'rien', '', 'jean.deville@salle.omnes.com', 'musculation', 'Non', 'Paris'),
+(2, 'Marcelin', 'Jacques', 'Images\\coach2.png', 'rien', '', 'jacques.marcelin@salle.omnes.com', 'fitness', 'Non', 'Paris'),
+(3, 'Beignet', 'Gabrielle', 'Images\\coach3.png', 'rien', '', 'gabrielle.beignet@salle.omnes.com', 'biking', 'Non', 'Paris'),
+(4, 'Savret', 'Paulin', 'Images\\coach4.png', 'rien', '', 'paulin.savret@salle.omnes.com', 'cardio-training', 'Non', 'Paris'),
+(5, 'Racht', 'Yann', 'Images\\coach5.png', 'rien', '', 'yann.racht@salle.omnes.com', 'cours collectifs', 'Non', 'Paris'),
+(6, 'Junkins', 'Jeff', 'Images\\coach12.png', 'rien', '', 'jeff.junkins@salle.omnes.com', 'basketball', 'Oui', 'Paris'),
+(7, 'Zinedine', 'Zidane', 'Images\\coach7.png', 'rien', '', 'zinedine.zidane@salle.omnes.com', 'football', 'Oui', 'Paris'),
+(8, 'Travers', 'Laurent', 'Images\\coach8.png', 'rien', '', 'laurent.travers@salle.omnes.com', 'rugby', 'Oui', 'Paris'),
+(9, 'Williams', 'Serena', 'Images\\coach9.png', 'rien', '', 'serena.williams@salle.omnes.com', 'tennis', 'Oui', 'Paris'),
+(10, 'Lucas', 'Philippe', 'Images\\coach10.png', 'rien', '', 'lucas.philippe@salle.omnes.com', 'natation', 'Oui', 'Paris'),
+(11, 'Li You', 'Jian', 'Images\\coach11.png', 'rien', '', 'jian.liyou@salle.omnes.com', 'plongeon', 'Oui', 'Paris'),
+(12, 'Pasquier', 'Daniel', 'Images/coach2.png', 'rien', '', 'daniel.pasquier@salle.omnes.com', 'musculation', 'Non', 'Paris'),
+(14, 'Jean', 'Marie', 'Imagescoach3.png', 'rien', '', 'marie.jean@salle.omnes.com', 'rugby', '', 'Paris');
 
 -- --------------------------------------------------------
 
@@ -197,14 +198,15 @@ CREATE TABLE IF NOT EXISTS `event` (
   `Image_event` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `Date_event` date NOT NULL,
   PRIMARY KEY (`Id_event`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `event`
 --
 
 INSERT INTO `event` (`Id_event`, `Nom_event`, `Image_event`, `Date_event`) VALUES
-(1, 'Fitness fete des meres', 'Images\\fitness.png', '2023-06-03');
+(2, 'Fitness fete des meres', 'Images/fitness.png', '2023-06-04'),
+(3, 'Musculation Fetes des peres', 'Images/musculation.png', '2023-06-11');
 
 -- --------------------------------------------------------
 
