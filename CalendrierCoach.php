@@ -1,11 +1,41 @@
-<?php
-/// inspirer par ce calendrier https://www.c2script.com/scripts/calendrier-de-reservation-simple-en-php-s24.html
-//page: calendrier.php
-session_start();//pour maintenir la session active
-//connexion à la base de données:
-$database = "sportify";
-$db_handle = mysqli_connect('localhost','root','Mezarnou');
-$db_found = mysqli_select_db($db_handle, $database);
+<!DOCTYPE html>
+  <html>
+  <header>
+  <title>Sportify: Compte Coach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"></style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script src="affichage.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="affichage.css"></style>
+  <meta charset="utf-8">
+  </header>
+  
+  <body>
+      <div class="wrapper">
+          <header>
+            <h1><b>Sportify: Consultation sportive</b></h1>
+            <img src="Images\logo.png" alt="Logo du site">
+          </header>   
+          
+          <nav>
+              <a href="Accueil.php">Accueil</a>
+              <a href="Tout parcourir.html">Tout parcourir</a>
+              <a href="recherche.html">Recherche</a>
+              <a href="rendezvous.php">Rendez-vous</a>
+              <a href="VotreCompteCoach.php">Votre compte</a>
+            </nav>
+            
+            <section class="text-center">
+                    <div class="mon compte">
+            <!--Le compte client via traitement php-->
+            <h2 >Planning</h2>
+            <?php 
+    session_start();//pour maintenir la session active
+    //connexion à la base de données:
+    $database = "sportify";
+    $db_handle = mysqli_connect('localhost','root','Mezarnou');
+    $db_found = mysqli_select_db($db_handle, $database);
+    
 
 /*
 * Module de connexion/déconnexion simplifié.
@@ -51,11 +81,20 @@ if(isset($_SESSION['Id_Coach'])){
 	//isset($_GET['jour'] AND preg_match("#^[1-7]{1}$#",$_GET['jour'])) AND
 	isset($_GET['choix']) AND preg_match("#^(0|1)$#",$_GET['choix'])) {
 		$periode=$_GET['periode'];
-		$jour=$_GET['jour'];
+        
+        		$jour=$_GET['jour'];
 		if($_GET['choix']==1){
-			
-			$sql="INSERT INTO calendrier(Id_Coach, Periode, Jour)
-			VALUES('$coach','$periode','$jour')";
+			if($periode=='1')
+        {
+            $PM='0';
+            $AM='1';
+        }
+        if($periode=='2'){
+            $AM='0';
+            $PM ='1'; 
+        }
+			$sql="INSERT INTO calendrier(Id_Coach, Periode, Jour, AM, PM)
+			VALUES('$coach','$periode','$jour','$AM','$PM')";
 			
 			if(mysqli_query($db_handle,$sql)) {
 				
@@ -122,3 +161,23 @@ $StyleTh="text-shadow: 1px 1px 1px #000;color:white;width:75px;border-right:1px 
 	</tr>
 	
 </table>
+</section>
+
+   
+            
+             <footer class="footer">
+        <div class="container bottom_border">
+          <div class="row">
+            <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+              <h5 class="headin5_amrc col_white_amrc pt2">Où nous trouver</h5>
+              <p><i class="fa fa-location-arrow"></i> 3 rue Jean Massiet</p>
+              <p><i class="fa fa-phone"></i>  +33 16 27 38 49 50  </p>
+              <p><a HREF="mailto:info@omnessports.com"><i class="fa fa fa-envelope"></i> info@omnessports.com </a> </p>
+            </div>
+          </div>
+        </div>
+        <p class="text-center">Copyright @2023 | Designed With by <a href="Accueil.php">Sportify</a></p>
+      </footer>
+          </div>
+  </body>
+  </html>
