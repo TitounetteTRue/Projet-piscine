@@ -183,7 +183,7 @@ INSERT INTO `coach` (`Id_Coach`, `Nom_Coach`, `Prenom_Coach`, `Photo_Coach`, `Vi
 (10, 'Lucas', 'Philippe', 'Images\\coach10.png', 'rien', '', 'lucas.philippe@salle.omnes.com', 'natation', 'Oui', 'Paris'),
 (11, 'Li You', 'Jian', 'Images\\coach11.png', 'rien', '', 'jian.liyou@salle.omnes.com', 'plongeon', 'Oui', 'Paris'),
 (12, 'Pasquier', 'Daniel', 'Images/coach2.png', 'rien', '', 'daniel.pasquier@salle.omnes.com', 'musculation', 'Non', 'Paris'),
-(14, 'Jean', 'Marie', 'Imagescoach3.png', 'rien', '', 'marie.jean@salle.omnes.com', 'rugby', '', 'Paris');
+(14, 'Jean', 'Marie', 'Images/coach3.png', 'rien', '', 'marie.jean@salle.omnes.com', 'rugby', '', 'Paris');
 
 -- --------------------------------------------------------
 
