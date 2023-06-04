@@ -58,7 +58,7 @@
       if(isset($_GET['deconnexion'])) {
         unset($_SESSION['Login']);
         echo "Déconnecté avec succès!";
-            header('Location:Accueil.html');
+            header('Location:Accueil.php');
       }
       if(isset($_SESSION['Login'])) {
         echo '<p><a style="letter-spacing:0.5px;" href="?deconnexion">Déconnexion</a></p>';
