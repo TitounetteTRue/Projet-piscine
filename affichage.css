@@ -52,6 +52,12 @@
     height: 81px;
 }
 
+  #carrousel {
+    position: relative;
+    height: 200px;
+    width: 700px;
+    margin: auto;
+}
 
 
 /*POur les pages activités sportives et sport compétitives (Musculation,...)*/
