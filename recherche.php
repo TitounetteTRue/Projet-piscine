@@ -23,13 +23,12 @@
       <a href="rendezvous.php">Rendez-vous</a>
       <a href="Votrecompte.html">Votre compte</a>
     </nav>
-    <section>
+    <section class="container">
+      <h3>Recherche </h3>
 <?php 
 
-$nom = isset($_POST["nom"])? $_POST["nom"] : "";
-$prenom = isset($_POST["prenom"])? $_POST["prenom"] : "";
-$email = isset($_POST["email"])? $_POST["email"] : "";
-$specialite = isset($_POST["specialite"])? $_POST["specialite"] : "";
+$recherche = isset($_POST["recherche"])? $_POST["recherche"] : "";
+
 
 //identifier BDD
 $database = "sportify";
@@ -41,21 +40,7 @@ $db_found = mysqli_select_db($db_handle,$database);
 if (isset($_POST["barre"])){
         if ($db_found) {
             //commencer le query
-            $sql = "SELECT * FROM coach";
-            if ($nom != "") {
-                //on recherche le livre par son titre
-                $sql .= "WHERE Nom_Coach LIKE '%$nom%'";
-                if ($prenom != "") {
-                  $sql .= " AND Prenom_Coach LIKE '%$prenom%'";
-               }
-               if ($email != "") {
-                  $sql .= " AND Email_Coach LIKE '%$email%'";
-               }
-               if($specialite !=""){
-                $sql .= " AND Specialite_Coach LIKE '%$specialite%'";
-               }
-             }
-
+            $sql = "SELECT * FROM coach WHERE (Nom_Coach LIKE '%$recherche%') OR (Prenom_Coach LIKE '%$recherche%') OR (Email_Coach LIKE '%$recherche%') OR (Specialite_Coach LIKE '%$recherche%')";
             $result = mysqli_query($db_handle, $sql);
             //regarder s'il y a des resultats
             if (mysqli_num_rows($result) == 0) {
@@ -65,6 +50,7 @@ if (isset($_POST["barre"])){
                 while ($data = mysqli_fetch_assoc($result)) {
                   echo"<form action='coachactivB.php' method='post'>";
                   echo" <div class='media'>";
+                  $image = $data['Photo_Coach'];
                   echo "<br><img src='$image' class='float-start' height='120' width='100'>";
                   echo "<div class='media-body text-center'>";
                   echo "<p>" . "Nom : " . $data['Nom_Coach'] ."<br>";
@@ -81,8 +67,6 @@ if (isset($_POST["barre"])){
             echo "<p>Database not found.</p>";
         }
     } //end Rechercher
-    //fermer la connexion
-    mysqli_close($db_handle);
     ?>
     </section>
     <footer class="footer">
