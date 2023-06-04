@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Création et Visualisation de CV XML</title>
+</head>
+<body>
+  <h1>Création et Visualisation de CV XML</h1>
+
+  <h2>Création de CV XML</h2>
+
+  <form id="cvForm">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required><br>
+
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" required><br>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="telephone">Téléphone :</label>
+    <input type="text" id="telephone" name="telephone" required><br>
+
+    <label for="adresse">Adresse :</label>
+    <textarea id="adresse" name="adresse" required></textarea><br>
+
+    <label for="experience">Expérience :</label>
+    <textarea id="experience" name="experience" required></textarea><br>
+
+    <label for="formation">Formation :</label>
+    <textarea id="formation" name="formation" required></textarea><br>
+
+    <input type="submit" value="Créer CV">
+  </form>
+
+  <hr>
+
+  <h2>Visualisation de CV XML</h2>
+
+  <input type="file" id="cvFile" accept=".xml">
+  <button onclick="loadCV()">Charger CV</button>
+
+  <div id="cvContainer"></div>
+
+  <script>
+    document.getElementById('cvForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Empêche le rechargement de la page
+
+      // Création de l'objet XML
+      var xml = document.implementation.createDocument(null, 'cv');
+
+      // Récupération des données du formulaire
+      var nom = document.getElementById('nom').value;
+      var prenom = document.getElementById('prenom').value;
+      var email = document.getElementById('email').value;
+      var telephone = document.getElementById('telephone').value;
+      var adresse = document.getElementById('adresse').value;
+      var experience = document.getElementById('experience').value;
+      var formation = document.getElementById('formation').value;
+
+      // Création des éléments XML et ajout des données
+      var cvElement = xml.createElement('cv');
+
+      var nomElement = xml.createElement('nom');
+      nomElement.appendChild(xml.createTextNode(nom));
+      cvElement.appendChild(nomElement);
+
+      var prenomElement = xml.createElement('prenom');
+      prenomElement.appendChild(xml.createTextNode(prenom));
+      cvElement.appendChild(prenomElement);
+
+      var emailElement = xml.createElement('email');
+      emailElement.appendChild(xml.createTextNode(email));
+      cvElement.appendChild(emailElement);
+
+      var telephoneElement = xml.createElement('telephone');
+      telephoneElement.appendChild(xml.createTextNode(telephone));
+      cvElement.appendChild(telephoneElement);
+
+      var adresseElement = xml.createElement('adresse');
+      adresseElement.appendChild(xml.createTextNode(adresse));
+      cvElement.appendChild(adresseElement);
+
+      var experienceElement = xml.createElement('experience');
+      experienceElement.appendChild(xml.createTextNode(experience));
+      cvElement.appendChild(experienceElement);
+
+      var formationElement = xml.createElement('formation');
+      formationElement.appendChild(xml.createTextNode(formation));
+      cvElement.appendChild(formationElement);
+
+      xml.documentElement.appendChild(cvElement);
+
+      // Création du lien de téléchargement
+      var xmlData = new XMLSerializer().serializeToString(xml);
+      var fileData = encodeURIComponent(xmlData);
+      var downloadLink = document.createElement('a');
+      downloadLink.setAttribute('href', 'data:text/xml;charset=utf-8,' + fileData);
+      downloadLink.setAttribute('download', 'cv.xml');
+      downloadLink.innerHTML = 'Télécharger CV';
+
+      // Ajout du lien dans le document
+      document.body.appendChild(downloadLink);
+    });
+
+    function loadCV() {
+      var fileInput = document.getElementById('cvFile');
+      var file = fileInput.files[0];
+
+      if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var xmlString = e.target.result;
+          var parser = new DOMParser();
+          var xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+
+          var cvElement = xmlDoc.getElementsByTagName('cv')[0];
+
+          var nom = cvElement.getElementsByTagName('nom')[0].textContent;
+          var prenom = cvElement.getElementsByTagName('prenom')[0].textContent;
+          var email = cvElement.getElementsByTagName('email')[0].textContent;
+          var telephone = cvElement.getElementsByTagName('telephone')[0].textContent;
+          var adresse = cvElement.getElementsByTagName('adresse')[0].textContent;
+          var experience = cvElement.getElementsByTagName('experience')[0].textContent;
+          var formation = cvElement.getElementsByTagName('formation')[0].textContent;
+
+          var cvContainer = document.getElementById('cvContainer');
+          cvContainer.innerHTML = '';
+
+          var cvHTML = '<h2>' + prenom + ' ' + nom + '</h2>' +
+                        '<p><strong>Email:</strong> ' + email + '</p>' +
+                        '<p><strong>Téléphone:</strong> ' + telephone + '</p>' +
+                        '<p><strong>Adresse:</strong> ' + adresse + '</p>' +
+                        '<h3>Expérience:</h3>' +
+                        '<p>' + experience + '</p>' +
+                        '<h3>Formation:</h3>' +
+                        '<p>' + formation + '</p>';
+
+          cvContainer.innerHTML = cvHTML;
+        };
+        reader.readAsText(file);
+      }
+    }
+  </script>
+</body>
+</html>
