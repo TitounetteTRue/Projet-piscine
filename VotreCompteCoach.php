@@ -33,7 +33,7 @@
     session_start();//pour maintenir la session active
     //connexion à la base de données:
     $database = "sportify";
-    $db_handle = mysqli_connect('localhost','root','');
+    $db_handle = mysqli_connect('localhost','root','Mezarnou');
     $db_found = mysqli_select_db($db_handle, $database);
     
     
@@ -69,7 +69,7 @@
                 echo "Nom : ".$data['Nom_Coach']."<br>";
                 echo "Prenom : " .$data['Prenom_Coach']. "<br>";
                 echo "Email : ".$data['Email_Coach']."<br>";
-                echo "modif calendrier coach"."<br>";
+                echo "<a href='CalendrierCoach.php'>modif calendrier coach</a>"."<br>";
                      }
                   }
                 echo "<br>" ;
